@@ -179,6 +179,49 @@ a {
   margin-left: -20px;
 }
 
+/* BAD: work cards — stretched thumbs, tiny unlabeled titles, no whitespace */
+.work-label {
+  font-family: Impact, sans-serif;
+  font-size: 9px;
+  color: #ff6b00;
+  margin: 2px 0 0 4px;
+}
+
+.work-row {
+  display: flex;
+  gap: 2px;
+  margin: 0 0 8px 0;
+  flex-wrap: wrap;
+}
+
+.work-card {
+  cursor: pointer;
+  background: #ffff00;
+  color: #000;
+  width: 31%;
+  min-width: 140px;
+  padding: 1px;
+  border: 5px solid #ff00aa;
+  font-family: "Courier New", monospace;
+}
+
+.work-card img {
+  width: 100%;
+  height: 38px;
+  display: block;
+}
+
+.work-card span {
+  display: block;
+  font-size: 10px;
+}
+
+.work-meta {
+  color: #c8c800;
+  font-size: 8px;
+  font-family: Papyrus, fantasy;
+}
+
 /* Color-only targets */
 .swatch-row {
   display: flex;
@@ -268,12 +311,6 @@ a {
 }
 
 #bg-canvas {
-  position: absolute;
-  left: -9999px;
-}
-
-#bg-audio {
-  /* BAD: in the DOM, autoplaying, no controls, not pauseable from the UI */
   position: absolute;
   left: -9999px;
 }

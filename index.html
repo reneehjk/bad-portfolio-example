@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <!-- BAD: auto-playing audio, no controls, no pause UI -->
-    <audio id="bg-audio" src="assets/beep.wav" autoplay loop></audio>
     <!-- BAD: canvas is captured into a <video> that autoplays with no pause -->
     <canvas id="bg-canvas" width="240" height="160"></canvas>
     <video id="bg-video" autoplay loop playsinline muted></video>
@@ -63,6 +61,26 @@
       <div class="swatch swatch-red" data-color-target data-href="stuff.html"></div>
     </div>
 
+    <!-- BAD: "selected work" with no project names, no hierarchy, unlabeled cards -->
+    <div class="work-label">selected work or whatever</div>
+    <div class="work-row">
+      <div class="work-card" onclick="location.href='stuff.html'">
+        <img src="assets/img1.svg" alt="img1.jpg" />
+        <span>Stuff</span>
+        <span class="work-meta">fintech? food? yes</span>
+      </div>
+      <div class="work-card" onclick="location.href='click.html'">
+        <img src="assets/img3.svg" alt="photo.png" />
+        <span>Click</span>
+        <span class="work-meta">healthcare skateboards</span>
+      </div>
+      <div class="work-card" onclick="location.href='things.html'">
+        <img src="assets/img4.svg" />
+        <span>???</span>
+        <span class="work-meta">parking dating noodles</span>
+      </div>
+    </div>
+
     <!-- BAD: custom dropdown, not a <select> or <button>, keyboard ignored -->
     <div class="dropdown-wrap">
       <span>pick a thing (mouse only):</span>
@@ -70,6 +88,7 @@
       <div id="dropdown-menu">
         <div class="dropdown-item" onclick="location.href='stuff.html'">Stuff</div>
         <div class="dropdown-item" onclick="location.href='click.html'">the other one</div>
+        <div class="dropdown-item" onclick="location.href='things.html'">???</div>
         <div class="dropdown-item">this one does nothing</div>
       </div>
     </div>

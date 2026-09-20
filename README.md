@@ -4,7 +4,7 @@ A satirical product-design portfolio built to demonstrate **everything wrong** w
 
 **Do not copy this site. It fails WCAG on purpose.** Flashing animations are kept under 3 flashes/second so the presentation itself is not a seizure risk.
 
-Open `index.html` in a browser (double-click, or `python3 -m http.server` from this folder). Autoplay audio/video may need one click because browsers block unmuted autoplay.
+Open `index.html` in a browser (double-click, or `python3 -m http.server` from this folder).
 
 ## Pages
 
@@ -27,7 +27,7 @@ Nav labels never say where they go: **Stuff**, **More**, **Click**, **???**.
 - **No focus states** — every stylesheet starts with `* { outline: none !important; }` and never restyles `:focus`.
 - **Tiny type + endless lines** — `font-size: 10px` and no `max-width` on body copy.
 - **Color as the only indicator** — homepage: “click the red one.” Three unlabeled swatches.
-- **Autoplay media, no pause** — `<audio id="bg-audio" autoplay loop>` (no `controls`) plus a canvas-captured `<video autoplay>` (`js/bad.js`).
+- **Autoplay media, no pause** — a canvas-captured `<video autoplay>` with no pause UI (`js/bad.js`). Silent on purpose.
 - **Motion with no reduced-motion handling** — flashing banners (`.flash`, `.flash2`, `.blink`, `.shake`). No `@media (prefers-reduced-motion)`.
 - **Broken keyboard nav** — custom dropdown (`#dropdown-trigger`) ignores keys; modal (`#popup`) swallows Escape; close target is a 7×7px unlabeled div.
 - **Unlabeled inputs** — homepage popup, homepage “formy,” and `contact.html` use placeholders only.
@@ -37,6 +37,9 @@ Nav labels never say where they go: **Stuff**, **More**, **Click**, **???**.
 - Confusing navigation, different on every page (top, side, bottom-right).
 - Hero (“i do design”) is buried under a mom’s-coworker paragraph, clutter boxes, and a newsletter modal.
 - Case studies skip the problem, ship a mismatched solution, wander into lunch, show no UI, and conclude “it went well.”
+  - `stuff.html` — Northshore Bank “solved” with a prix-fixe menu
+  - `click.html` — healthcare onboarding shipped as skateboard stickers
+  - `things.html` — parking meters turned into a dating app because of pad thai
 - Contact is hidden: About → “go here” → `keep-going.html` → `almost.html` → `contact.html`.
 - Each page is a different palette, type stack, and spacing system.
 

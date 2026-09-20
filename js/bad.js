@@ -6,22 +6,6 @@
 (function () {
   "use strict";
 
-  /* BAD: auto-playing background audio with no pause control.
-     The <audio autoplay> element in the DOM also has no controls attribute. */
-  function startUnstoppableAudio() {
-    var audio = document.getElementById("bg-audio");
-    if (!audio) return;
-    audio.loop = true;
-    audio.volume = 0.35;
-    var tryPlay = function () {
-      audio.play().catch(function () {
-        /* Autoplay may be blocked until a click; then it never stops. */
-      });
-    };
-    tryPlay();
-    document.addEventListener("click", tryPlay, { once: true });
-  }
-
   /* BAD: fake "background video" captured from a flashing canvas.
      No pause UI. No prefers-reduced-motion check. */
   function startUnstoppableVideo() {
@@ -107,7 +91,6 @@
     }
   }
 
-  startUnstoppableAudio();
   startUnstoppableVideo();
   initBrokenDropdown();
   initBrokenModal();
