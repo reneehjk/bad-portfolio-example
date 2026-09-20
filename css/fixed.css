@@ -1,0 +1,364 @@
+/* Corrections applied only when html[data-view="fixed"].
+   Overrides the drifted page styles with one type scale, spacing, and palette. */
+
+html[data-view="fixed"] {
+  --muted: #4a5568; /* ~7.5:1 on white — AA for small text */
+  --navy: #1e3a5f;
+  --accent: #c45c26;
+  --text: #1a1a1a;
+  --line: #d9dee7;
+  --bg: #ffffff;
+  --measure: 960px;
+  --space: 8px;
+}
+
+html[data-view="fixed"] body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  padding-bottom: 56px;
+}
+
+html[data-view="fixed"] :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+html[data-view="fixed"] .muted,
+html[data-view="fixed"] .site-footer,
+html[data-view="fixed"] .site-footer a {
+  color: var(--muted);
+}
+
+html[data-view="fixed"] .site-header {
+  padding: 16px max(32px, calc((100% - var(--measure)) / 2));
+  align-items: center;
+}
+
+html[data-view="fixed"] .logo,
+html[data-view="fixed"] .page-home .logo,
+html[data-view="fixed"] .page-about .logo,
+html[data-view="fixed"] .page-info .logo {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+html[data-view="fixed"] .site-nav,
+html[data-view="fixed"] .page-home .site-nav,
+html[data-view="fixed"] .page-about .site-nav,
+html[data-view="fixed"] .page-info .site-nav {
+  font-size: 15px;
+}
+
+html[data-view="fixed"] .site-nav a,
+html[data-view="fixed"] .page-info .site-nav a {
+  color: var(--navy);
+  margin-left: 20px;
+}
+
+html[data-view="fixed"] .site-nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+html[data-view="fixed"] .wrap,
+html[data-view="fixed"] .page-home .wrap,
+html[data-view="fixed"] .page-about .wrap,
+html[data-view="fixed"] .page-info .wrap,
+html[data-view="fixed"] .page-northshore .wrap,
+html[data-view="fixed"] .page-carepath .wrap,
+html[data-view="fixed"] .page-parkwell .wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+html[data-view="fixed"] .page-home .wrap {
+  padding: 0 32px;
+}
+
+html[data-view="fixed"] h1,
+html[data-view="fixed"] .page-home h1,
+html[data-view="fixed"] .hero h1,
+html[data-view="fixed"] .page-about h1,
+html[data-view="fixed"] .page-info h1,
+html[data-view="fixed"] .page-northshore h1,
+html[data-view="fixed"] .page-carepath h1,
+html[data-view="fixed"] .page-parkwell h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0 0 8px;
+}
+
+html[data-view="fixed"] h2,
+html[data-view="fixed"] .page-home h2,
+html[data-view="fixed"] .intro-block h2,
+html[data-view="fixed"] .section-head h2,
+html[data-view="fixed"] .page-northshore h2,
+html[data-view="fixed"] .page-carepath h2,
+html[data-view="fixed"] .page-parkwell h2,
+html[data-view="fixed"] .page-about h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 32px 0 12px;
+}
+
+html[data-view="fixed"] h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+html[data-view="fixed"] .hero {
+  background:
+    linear-gradient(rgba(15, 28, 48, 0.88), rgba(15, 28, 48, 0.9)),
+    url("../assets/hero.svg") center / cover no-repeat;
+  color: #ffffff;
+  padding: 96px max(32px, calc((100% - var(--measure)) / 2));
+}
+
+html[data-view="fixed"] .hero p {
+  font-size: 1.125rem;
+  max-width: 36em;
+  color: #ffffff;
+}
+
+html[data-view="fixed"] .section {
+  padding: 64px 0 24px;
+}
+
+html[data-view="fixed"] .section-head {
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+html[data-view="fixed"] .section-head h2 {
+  margin: 0;
+}
+
+html[data-view="fixed"] .work-grid {
+  gap: 24px;
+}
+
+html[data-view="fixed"] .work-grid article:last-child {
+  margin-top: 0;
+}
+
+html[data-view="fixed"] .work-grid img,
+html[data-view="fixed"] .work-grid article:nth-child(2) img {
+  height: 200px;
+}
+
+html[data-view="fixed"] .project-meta {
+  font-size: 0.875rem;
+}
+
+html[data-view="fixed"] .intro-block {
+  gap: 48px;
+  padding: 24px 0 72px;
+}
+
+html[data-view="fixed"] a.btn,
+html[data-view="fixed"] button.btn {
+  display: inline-block;
+  border: 0;
+  background: var(--navy);
+  color: #ffffff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html[data-view="fixed"] .page-home .btn,
+html[data-view="fixed"] .page-info .btn,
+html[data-view="fixed"] .btn-accent {
+  background: var(--navy);
+  font-size: 1rem;
+  padding: 10px 16px;
+  margin-top: 16px;
+}
+
+html[data-view="fixed"] .site-footer,
+html[data-view="fixed"] .page-home .site-footer,
+html[data-view="fixed"] .page-about .site-footer,
+html[data-view="fixed"] .page-info .site-footer,
+html[data-view="fixed"] .page-northshore .site-footer,
+html[data-view="fixed"] .page-carepath .site-footer,
+html[data-view="fixed"] footer.view-fixed {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px max(32px, calc((100% - var(--measure)) / 2));
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+}
+
+html[data-view="fixed"] .about-layout {
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+}
+
+html[data-view="fixed"] .about-layout img {
+  width: 200px;
+  height: 250px;
+}
+
+html[data-view="fixed"] .page-about h2 {
+  margin: 28px 0 8px;
+}
+
+html[data-view="fixed"] .field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+html[data-view="fixed"] .field input,
+html[data-view="fixed"] .field textarea,
+html[data-view="fixed"] .field select {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid #8b95a8;
+  border-radius: 4px;
+}
+
+html[data-view="fixed"] .filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+html[data-view="fixed"] .filter-label select {
+  font: inherit;
+  font-weight: 400;
+  padding: 6px 8px;
+}
+
+html[data-view="fixed"] .shots,
+html[data-view="fixed"] .shot-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0 8px;
+  align-items: start;
+}
+
+html[data-view="fixed"] .shots img,
+html[data-view="fixed"] .shots img:first-child,
+html[data-view="fixed"] .shots img:last-child,
+html[data-view="fixed"] .shot-row img,
+html[data-view="fixed"] .shot-row img:last-child {
+  width: 100%;
+  margin: 0;
+}
+
+html[data-view="fixed"] .shot {
+  margin: 24px 0;
+}
+
+html[data-view="fixed"] figure {
+  margin: 0;
+}
+
+html[data-view="fixed"] figcaption {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+html[data-view="fixed"] .case-section p {
+  max-width: 42em;
+}
+
+html[data-view="fixed"] .outcome-list {
+  padding-left: 1.2em;
+  max-width: 42em;
+}
+
+html[data-view="fixed"] .page-northshore p,
+html[data-view="fixed"] .page-carepath p,
+html[data-view="fixed"] .page-parkwell p {
+  max-width: 42em;
+  margin: 0 0 12px;
+}
+
+html[data-view="fixed"] .page-parkwell .next {
+  margin-top: 48px;
+  font-size: 1rem;
+}
+
+html[data-view="fixed"] .modal-panel {
+  padding: 24px;
+  border-radius: 6px;
+}
+
+html[data-view="fixed"] .modal-close {
+  float: right;
+  border: 0;
+  background: transparent;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+html[data-view="fixed"] .carousel-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+}
+
+html[data-view="fixed"] .carousel-pause {
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--navy);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+html[data-view="fixed"] .carousel-dots {
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+html[data-view="fixed"] .carousel-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #c5cdd8;
+  cursor: pointer;
+}
+
+html[data-view="fixed"] .carousel-dots button.is-active,
+html[data-view="fixed"] .carousel-dots button[aria-current="true"] {
+  background: var(--navy);
+}
+
+html[data-view="fixed"] .lede {
+  margin: 0 0 32px;
+  font-size: 1.125rem;
+}

@@ -4,18 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CarePath — Taylor Spline</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/carepath.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-carepath" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
+      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
+      </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work" aria-current="page">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Contact</a>
       </nav>
     </header>
 
@@ -24,7 +45,7 @@
       <p class="meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Product design, healthcare · 2023</p>
 
       <!-- BAD: no dedicated problem section; the work is described in generalities -->
-      <div data-mistake="UX: No dedicated problem section; the work is described in generalities">
+      <div class="view-bad" data-mistake="UX: No dedicated problem section; the work is described in generalities">
         <p>
           CarePath is a patient intake product used by a regional clinic network. I was brought in to
           help with the onboarding experience — the stretch from account creation through insurance
@@ -40,10 +61,17 @@
           existing visual language rather than introducing a new one.
         </p>
       </div>
+      <div class="view-fixed case-section">
+        <h2>Problem</h2>
+        <p>
+          34% of digital intakes were submitted incomplete. Front-desk staff spent about 12 minutes
+          per patient on follow-up calls before a first appointment (clinic operations, 2023).
+        </p>
+      </div>
 
       <h2>Process</h2>
       <!-- BAD: process is a tool/step list, not the reasoning that led to decisions -->
-      <ul class="process-list" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
+      <ul class="process-list view-bad" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
         <li>Shadowing front-desk staff</li>
         <li>Journey mapping</li>
         <li>Sketching and task flows</li>
@@ -51,20 +79,44 @@
         <li>Usability sessions</li>
         <li>Design QA in staging</li>
       </ul>
+      <div class="view-fixed case-section">
+        <p>
+          I shadowed the front desk for two days, then split fields into “needed now” versus “can
+          wait.” The patient flow got shorter; a staff view of incomplete records was added so
+          follow-up had a place to live. We kept the clinic’s existing visual language so
+          engineering did not have to restyle the product.
+        </p>
+      </div>
 
       <!-- BAD: two screenshots, no captions, sizes don’t match — unclear what we’re looking at -->
-      <div class="shot-row" data-mistake="UX: Two screenshots, no captions, sizes don't match — unclear what we're looking at">
+      <div class="shot-row view-bad" data-mistake="UX: Two screenshots, no captions, sizes don't match — unclear what we're looking at">
         <img src="assets/ui-health.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
         <img src="assets/ui-health.svg" alt="screenshot" data-mistake="Visual: Paired images don't share a top edge or width" />
+      </div>
+      <div class="shot-row view-fixed">
+        <figure>
+          <img src="assets/ui-health.svg" alt="Patient intake form with a three-step progress indicator" />
+          <figcaption>Patient intake — required fields first, optional history later.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ui-health.svg" alt="Staff view of a partially completed intake with missing-field flags" />
+          <figcaption>Staff view — incomplete records flagged before the appointment.</figcaption>
+        </figure>
       </div>
 
       <h2>Outcome</h2>
       <!-- BAD: outcome claimed without numbers, baseline, or source -->
-      <p data-mistake="UX: Outcome claimed without numbers, baseline, or source">
+      <p class="view-bad" data-mistake="UX: Outcome claimed without numbers, baseline, or source">
         Intake completion improved and staff reported fewer follow-up calls. The clinic has since
         rolled the flow out to additional locations. Increased engagement with the pre-visit
         checklist was a nice side effect. I’m not able to share detailed metrics.
       </p>
+      <div class="view-fixed case-section">
+        <ul class="outcome-list">
+          <li>Complete intake rate went from 66% to 88% over 8 weeks (clinic analytics, two pilot locations).</li>
+          <li>Follow-up calls dropped about 30% in the same window (clinic operations log).</li>
+        </ul>
+      </div>
     </article>
 
     <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on Home / About) but missing on other pages">

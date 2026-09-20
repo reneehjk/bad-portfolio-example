@@ -1,23 +1,43 @@
-/* Presentation annotation layer. Inactive until body.annotate-on. */
+/* Three-state presenter control + annotation hover (Annotated only). */
 
-.annotate-toggle {
+.view-switch {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 10000;
-  font: 600 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
-  padding: 8px 12px;
+  display: flex;
   border: 1px solid #1e3a5f;
-  background: #ffffff;
-  color: #1e3a5f;
   border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.15);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.18);
+  font: 600 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.annotate-toggle[aria-pressed="true"] {
+.view-switch button {
+  appearance: none;
+  border: 0;
+  background: #ffffff;
+  color: #1e3a5f;
+  padding: 8px 12px;
+  cursor: pointer;
+  font: inherit;
+  border-right: 1px solid #1e3a5f;
+}
+
+.view-switch button:last-child {
+  border-right: 0;
+}
+
+.view-switch button[aria-pressed="true"] {
   background: #1e3a5f;
   color: #ffffff;
+}
+
+.view-switch button:focus-visible {
+  outline: 2px solid #c45c26;
+  outline-offset: -2px;
+  z-index: 1;
 }
 
 .annotate-tip {
@@ -48,15 +68,23 @@
   margin-bottom: 2px;
 }
 
-/* Discoverability while mode is on — skip body so the page isn't boxed in */
-body.annotate-on [data-mistake]:not(body) {
+html[data-view="annotated"] [data-mistake]:not(body) {
   outline: 1px dashed rgba(196, 28, 28, 0.4);
   outline-offset: 3px;
   cursor: help;
 }
 
-body.annotate-on [data-mistake].is-annotate-hover,
-body.annotate-on.is-annotate-hover {
+html[data-view="annotated"] [data-mistake].is-annotate-hover,
+html[data-view="annotated"] body.is-annotate-hover {
   outline: 2px dashed #c41c1c;
   outline-offset: 3px;
+}
+
+/* Paired markup: only one version visible at a time */
+html[data-view="fixed"] .view-bad {
+  display: none !important;
+}
+
+html:not([data-view="fixed"]) .view-fixed {
+  display: none !important;
 }

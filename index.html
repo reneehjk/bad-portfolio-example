@@ -4,18 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Taylor Spline — Product Designer</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-home" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <!-- BAD: available-for-work modal. Close is a div (not in the tab order).
          Focus is not moved into the dialog, so Tab continues through the page behind. -->
-    <div class="modal" role="dialog" data-mistake="A11Y: Modal does not move focus inward; Tab continues through the page behind">
+    <div class="modal" role="dialog" aria-labelledby="avail-title" data-mistake="A11Y: Modal does not move focus inward; Tab continues through the page behind">
       <div class="modal-panel" style="padding: 20px 24px 24px;">
-        <div class="modal-close" data-mistake="A11Y: Close control is a div, not a button — skipped when tabbing">×</div>
-        <p style="margin: 0 0 8px; font-weight: 600;">Currently available</p>
+        <div class="modal-close view-bad" data-mistake="A11Y: Close control is a div, not a button — skipped when tabbing">×</div>
+        <button type="button" class="modal-close view-fixed" aria-label="Close dialog">×</button>
+        <p id="avail-title" style="margin: 0 0 8px; font-weight: 600;">Currently available</p>
         <p class="muted" style="margin: 0;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">I’m taking on a few freelance projects for 2026. If you’re hiring, send a note via Info.</p>
       </div>
     </div>
@@ -23,10 +40,15 @@
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
       <!-- BAD: nav labels are real but generic — "Work" is just this page, "Info" is not obviously contact -->
-      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
+      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
+      </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work" aria-current="page">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Contact</a>
       </nav>
     </header>
 
@@ -40,9 +62,10 @@
       <section class="section" id="work">
         <div class="section-head">
           <!-- BAD: skipped heading level — h1 in the hero, then h3 here (no h2) -->
-          <h3 style="font-size: 18px; font-weight: 600; margin: 0;" data-mistake="A11Y: Skipped heading level — h1 in the hero, then h3 here (no h2)">Selected work</h3>
+          <h3 class="view-bad" style="font-size: 18px; font-weight: 600; margin: 0;" data-mistake="A11Y: Skipped heading level — h1 in the hero, then h3 here (no h2)">Selected work</h3>
+          <h2 class="view-fixed">Selected work</h2>
           <!-- BAD: filter is a div, not a select/button. Menu items stay tabbable while closed. -->
-          <div class="dropdown" data-mistake="A11Y: Filter is a div, not a select/button. Closed menu items stay in the tab order">
+          <div class="dropdown view-bad" data-mistake="A11Y: Filter is a div, not a select/button. Closed menu items stay in the tab order">
             <div class="dropdown-trigger" tabindex="0">All projects</div>
             <div class="dropdown-menu">
               <div class="dropdown-item" tabindex="0">All projects</div>
@@ -50,27 +73,35 @@
               <div class="dropdown-item" tabindex="0">Research</div>
             </div>
           </div>
+          <label class="filter-label view-fixed" for="project-filter">
+            Filter
+            <select id="project-filter">
+              <option value="all">All projects</option>
+              <option value="product">Product</option>
+              <option value="research">Research</option>
+            </select>
+          </label>
         </div>
 
         <!-- BAD: work grid almost lines up — last card sits 12px lower, gaps are uneven -->
         <div class="work-grid" data-mistake="Visual: Work grid almost lines up — last card sits lower, gaps are uneven">
-          <article>
+          <article data-category="product">
             <a class="project-card" href="northshore.html">
-              <img src="assets/ui-bank-1.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
+              <img src="assets/ui-bank-1.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="Northshore Bank account home showing balances and recent activity" />
               <h3>Northshore Bank</h3>
               <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Consumer banking · 2024</p>
             </a>
           </article>
-          <article>
+          <article data-category="product">
             <a class="project-card" href="carepath.html">
-              <img src="assets/ui-health.svg" alt="portfolio piece" data-mistake="A11Y: Alt text present but meaningless" />
+              <img src="assets/ui-health.svg" alt="portfolio piece" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="CarePath patient intake form, step two of three" />
               <h3>CarePath</h3>
               <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Healthcare · 2023</p>
             </a>
           </article>
-          <article>
+          <article data-category="research">
             <a class="project-card" href="parkwell.html">
-              <img src="assets/ui-park.svg" alt="ui-park.svg" data-mistake="A11Y: Alt text present but meaningless" />
+              <img src="assets/ui-park.svg" alt="ui-park.svg" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="Parkwell map and pay-and-extend panel on mobile" />
               <h3>Parkwell</h3>
               <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Civic tech · 2023</p>
             </a>
@@ -87,7 +118,8 @@
             details actually matter.
           </p>
           <!-- BAD: looks like a button, implemented as a div with onclick instead of <a> or <button> -->
-          <div class="btn" onclick="location.href='about.html'" data-mistake="A11Y: Looks like a button, implemented as a div with onclick instead of a link or button">More about me</div>
+          <div class="btn view-bad" onclick="location.href='about.html'" data-mistake="A11Y: Looks like a button, implemented as a div with onclick instead of a link or button">More about me</div>
+          <a class="btn view-fixed" href="about.html">More about me</a>
         </div>
         <div>
           <p class="muted" style="margin: 0 0 8px;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Notes from collaborators</p>
@@ -109,10 +141,18 @@
               </div>
             </div>
             </div>
-            <div class="carousel-dots">
-              <div class="carousel-dot is-active"></div>
-              <div class="carousel-dot"></div>
-              <div class="carousel-dot"></div>
+            <div class="carousel-dots view-bad">
+              <div class="carousel-dot is-active" data-slide="0"></div>
+              <div class="carousel-dot" data-slide="1"></div>
+              <div class="carousel-dot" data-slide="2"></div>
+            </div>
+            <div class="carousel-toolbar view-fixed">
+              <div class="carousel-dots">
+                <button type="button" data-slide="0" aria-label="Show quote 1" aria-current="true"></button>
+                <button type="button" data-slide="1" aria-label="Show quote 2"></button>
+                <button type="button" data-slide="2" aria-label="Show quote 3"></button>
+              </div>
+              <button type="button" class="carousel-pause" aria-pressed="false">Pause</button>
             </div>
           </div>
         </div>

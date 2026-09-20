@@ -4,18 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Parkwell — Taylor Spline</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/parkwell.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-parkwell" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
+      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
+      </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work" aria-current="page">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Contact</a>
       </nav>
     </header>
 
@@ -24,7 +45,7 @@
       <p class="meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Civic tech · mobile · 2023</p>
 
       <!-- BAD: wall of text with no clear problem statement — reads like a recap, not a case study -->
-      <div data-mistake="UX: Wall of text with no clear problem statement — reads like a recap, not a case study">
+      <div class="view-bad" data-mistake="UX: Wall of text with no clear problem statement — reads like a recap, not a case study">
         <p>
           Parkwell is a parking payment product used by a handful of mid-size cities. I was asked to
           help with the pay-and-extend flow in the mobile app — a deceptively small surface that
@@ -39,29 +60,54 @@
           screens in the current app shell so engineering wouldn’t have to rebuild navigation.
         </p>
       </div>
+      <div class="view-fixed case-section">
+        <h2>Problem</h2>
+        <p>
+          18% of payment sessions failed at zone entry, and extend-session was buried enough that
+          people were still getting tickets (city partner report, 2023).
+        </p>
+      </div>
 
       <h2>Process</h2>
       <!-- BAD: process is a tool/step list, not the reasoning that led to decisions -->
-      <ul class="process-list" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
+      <ul class="process-list view-bad" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
         <li>App review and analytics walkthrough</li>
         <li>Flows</li>
         <li>UI design</li>
         <li>Prototype</li>
         <li>Dev handoff</li>
       </ul>
+      <div class="view-fixed case-section">
+        <p>
+          Analytics and session recordings showed drop-off at zone lookup, not at payment. I
+          redesigned find-zone → pay → extend as one sequence, with error copy that named the
+          actual failure (GPS, zone code, card). Screens stayed in the current app shell so
+          navigation did not have to be rebuilt.
+        </p>
+      </div>
 
       <!-- BAD: a single screenshot with no caption explaining the screen or the before/after -->
-      <div class="shot" data-mistake="UX: A single screenshot with no caption explaining the screen or the before/after">
+      <div class="shot view-bad" data-mistake="UX: A single screenshot with no caption explaining the screen or the before/after">
         <img src="assets/ui-park.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
       </div>
+      <figure class="shot view-fixed">
+        <img src="assets/ui-park.svg" alt="Parkwell map with a selected zone and pay-and-extend panel" data-alt-fixed="Parkwell map with a selected zone and pay-and-extend panel" />
+        <figcaption>Pay-and-extend — zone on the map, session time and pay action in the panel.</figcaption>
+      </figure>
 
       <h2>Outcome</h2>
       <!-- BAD: outcome claimed without numbers, baseline, or source -->
-      <p data-mistake="UX: Outcome claimed without numbers, baseline, or source">
+      <p class="view-bad" data-mistake="UX: Outcome claimed without numbers, baseline, or source">
         The city partners saw increased engagement with in-app extensions and fewer support tickets
         around failed payments. The design is in production. I’d like to do a proper follow-up
         study; we haven’t scheduled one yet.
       </p>
+      <div class="view-fixed case-section">
+        <ul class="outcome-list">
+          <li>Failed payments dropped from 18% to 7% after four weeks in production (Parkwell analytics).</li>
+          <li>In-app extensions rose 41% versus the prior 30 days (Parkwell analytics).</li>
+        </ul>
+      </div>
 
       <p class="next muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">
         <a href="northshore.html">Northshore Bank</a>
@@ -70,7 +116,11 @@
       </p>
     </article>
     <!-- BAD: no footer on this page, so no email — contact is inconsistent across the site -->
-    <div data-mistake="UX: No footer on this page, so no email — contact is inconsistent across the site" style="min-height: 64px;"></div>
+    <div class="view-bad" data-mistake="UX: No footer on this page, so no email — contact is inconsistent across the site" style="min-height: 64px;"></div>
+    <footer class="site-footer view-fixed">
+      <span>© 2026 Taylor Spline</span>
+      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
+    </footer>
 
     <script src="js/annotate.js"></script>
   </body>

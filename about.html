@@ -4,18 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About — Taylor Spline</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-about" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
+      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
+      </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work">Work</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="info.html">Contact</a>
       </nav>
     </header>
 
@@ -26,7 +47,7 @@
       <!-- BAD: 28px vs 40px used elsewhere — gap doesn't match the home grid -->
       <div class="about-layout" data-mistake="Visual: Gap doesn't match the home grid — spacing drifted across pages">
         <!-- BAD: alt text is present but only restates the filename -->
-        <img src="assets/portrait.svg" alt="portrait.svg" data-mistake="A11Y: Alt text present but meaningless" />
+        <img src="assets/portrait.svg" alt="portrait.svg" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="Portrait of Taylor Spline" />
         <div class="about-copy">
           <p>
             I’ve been designing digital products for about eight years, mostly in finance, health,
@@ -39,12 +60,14 @@
             going to have to live with the thing.
           </p>
           <!-- BAD: skipped h2 — page goes h1 → h3 -->
-          <h3 data-mistake="A11Y: Skipped h2 — page goes h1 → h3">How I work</h3>
+          <h3 class="view-bad" data-mistake="A11Y: Skipped h2 — page goes h1 → h3">How I work</h3>
+          <h2 class="view-fixed">How I work</h2>
           <p>
             I start with the constraints, talk to the people who use the product, and try to leave
             behind something a team can maintain. Tools change; Figma is the current one.
           </p>
-          <h3>Elsewhere</h3>
+          <h3 class="view-bad">Elsewhere</h3>
+          <h2 class="view-fixed">Elsewhere</h2>
           <p>
             Writing and talks live in a few different places. If you want a résumé, it’s easier to
             email me than to hunt for a PDF on this site.
@@ -54,7 +77,8 @@
     </div>
 
     <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on Home / CarePath) but missing on other pages">
-      <span>© 2026 Taylor Spline · <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a></span>
+      <span>© 2026 Taylor Spline</span>
+      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
     </footer>
 
     <script src="js/annotate.js"></script>

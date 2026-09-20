@@ -4,18 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Northshore Bank — Taylor Spline</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/northshore.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-northshore" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
+      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
+      </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work" aria-current="page">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Contact</a>
       </nav>
     </header>
 
@@ -24,7 +45,7 @@
       <p class="meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Product design · 2024 · 6 months</p>
 
       <!-- BAD: wall of text with no clear problem statement — reads like a recap, not a case study -->
-      <div data-mistake="UX: Wall of text with no clear problem statement — reads like a recap, not a case study">
+      <div class="view-bad" data-mistake="UX: Wall of text with no clear problem statement — reads like a recap, not a case study">
         <p>
           Northshore asked me to help rethink the everyday banking experience for their retail
           customers. I joined a small product trio — design, PM, and an engineering lead — and spent
@@ -41,10 +62,18 @@
           component library.
         </p>
       </div>
+      <div class="view-fixed case-section">
+        <h2>Problem</h2>
+        <p>
+          Retail customers could not reliably find transfers or a single view of activity. Northshore
+          support logged 41% of inbound calls in Q1 2024 as navigation questions (“where do I…?”)
+          rather than product issues (Northshore support report, Q1 2024).
+        </p>
+      </div>
 
       <h2>Process</h2>
       <!-- BAD: process is a tool/step list, not the reasoning that led to decisions -->
-      <ul class="process-list" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
+      <ul class="process-list view-bad" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
         <li>Kickoff and stakeholder workshops</li>
         <li>Competitive review</li>
         <li>Customer interviews (with research)</li>
@@ -53,26 +82,54 @@
         <li>Prototype in Maze</li>
         <li>Handoff and implementation support</li>
       </ul>
+      <div class="view-fixed case-section">
+        <p>
+          I worked with research on 12 customer interviews, then mapped the five highest-volume
+          tasks. Account home was redesigned around those tasks so operations-critical flows could
+          stay in the existing design system. We tested an interactive prototype with 8 customers
+          in Maze before handoff.
+        </p>
+      </div>
 
       <!-- BAD: screenshots dropped in with no caption, no context for what screen or state this is -->
-      <div class="shots" data-mistake="UX: Screenshots dropped in with no caption, no context for what screen or state this is">
+      <div class="shots view-bad" data-mistake="UX: Screenshots dropped in with no caption, no context for what screen or state this is">
         <img src="assets/ui-bank-1.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
         <img src="assets/ui-bank-2.svg" alt="portfolio piece" data-mistake="Visual: Second screenshot is a different width, no caption" />
+      </div>
+      <div class="shots view-fixed">
+        <figure>
+          <img src="assets/ui-bank-1.svg" alt="Desktop account home with balances and five primary tasks" />
+          <figcaption>Account home — balances and the five most common tasks at the top.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ui-bank-2.svg" alt="Mobile transfer screen with amount, recipient, and confirm action" />
+          <figcaption>Transfer flow on mobile — review and confirm before send.</figcaption>
+        </figure>
       </div>
 
       <h2>Outcome</h2>
       <!-- BAD: outcome claimed without numbers, baseline, or source -->
-      <p data-mistake="UX: Outcome claimed without numbers, baseline, or source">
+      <p class="view-bad" data-mistake="UX: Outcome claimed without numbers, baseline, or source">
         The new experience increased engagement and was well received internally. Customers found
         it easier to get through common tasks, and the team now has a structure they can keep
         building on. I stayed on through the first release to support QA and a few late copy
         changes.
       </p>
+      <div class="view-fixed case-section">
+        <ul class="outcome-list">
+          <li>Task success on “send money” rose from 62% to 91% in the Maze study (n=8, April 2024).</li>
+          <li>Support volume on navigation issues dropped 23% in the first 6 weeks after launch (Northshore ops dashboard).</li>
+        </ul>
+      </div>
     </article>
 
     <!-- BAD: copyright only — email is on Home/About/CarePath, not here -->
-    <footer class="site-footer" data-mistake="UX: Copyright only — email is on Home/About/CarePath, not here">
+    <footer class="site-footer view-bad" data-mistake="UX: Copyright only — email is on Home/About/CarePath, not here">
       <span>© 2026 Taylor Spline</span>
+    </footer>
+    <footer class="site-footer view-fixed">
+      <span>© 2026 Taylor Spline</span>
+      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
     </footer>
 
     <script src="js/annotate.js"></script>

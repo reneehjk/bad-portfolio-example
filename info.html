@@ -4,30 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Info — Taylor Spline</title>
+    <script>
+      (function () {
+        var v = "bad";
+        try {
+          var q = new URLSearchParams(location.search).get("view");
+          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
+          else {
+            var s = localStorage.getItem("portfolio-view");
+            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
+            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-view", v);
+      })();
+    </script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/info.css" />
     <link rel="stylesheet" href="css/annotate.css" />
+    <link rel="stylesheet" href="css/fixed.css" />
   </head>
   <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
   <body class="page-info" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
       <!-- BAD: accent used for nav only on this page -->
-      <nav class="site-nav" data-mistake="Visual: Accent used for nav only on this page">
+      <nav class="site-nav view-bad" data-mistake="Visual: Accent used for nav only on this page">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
       </nav>
+      <nav class="site-nav view-fixed" aria-label="Primary">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html" aria-current="page">Contact</a>
+      </nav>
     </header>
 
     <div class="wrap">
-      <h1 data-mistake="Visual: 22px heading — other pages use 24 / 26 / 28 / 32px; no type scale">Info</h1>
+      <h1 class="view-bad" data-mistake="Visual: 22px heading — other pages use 24 / 26 / 28 / 32px; no type scale">Info</h1>
+      <h1 class="view-fixed">Contact</h1>
       <p class="muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">
         For new projects, speaking, or general questions. I usually reply within a few days.
       </p>
 
       <!-- BAD: inputs have no <label>; placeholders are the only accessible name, and they disappear once the user types -->
-      <form action="#" method="post" onsubmit="return false;" data-mistake="A11Y: Inputs have no label; placeholders are the only accessible name">
+      <form class="view-bad" action="#" method="post" onsubmit="return false;" data-mistake="A11Y: Inputs have no label; placeholders are the only accessible name">
         <div class="field">
           <input type="text" name="name" placeholder="Name" />
         </div>
@@ -40,11 +62,30 @@
         <!-- BAD: submit is a div with onclick, not a <button type="submit"> -->
         <div class="btn btn-accent" onclick="alert('Thanks — I’ll get back to you.')" data-mistake="A11Y: Submit is a div with onclick, not a button">Send</div>
       </form>
+      <form class="view-fixed" action="#" method="post" onsubmit="alert('Thanks — I’ll get back to you.'); return false;">
+        <div class="field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" type="text" name="name" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message"></textarea>
+        </div>
+        <button class="btn" type="submit">Send</button>
+      </form>
     </div>
 
     <!-- BAD: this page has a contact form but no email in the footer (unlike Home / About) -->
-    <footer class="site-footer" data-mistake="UX: Contact form but no email in the footer (unlike Home / About)">
+    <footer class="site-footer view-bad" data-mistake="UX: Contact form but no email in the footer (unlike Home / About)">
       <span>© 2026 Taylor Spline</span>
+    </footer>
+    <footer class="site-footer view-fixed">
+      <span>© 2026 Taylor Spline</span>
+      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
     </footer>
 
     <script src="js/annotate.js"></script>

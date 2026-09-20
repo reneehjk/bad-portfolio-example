@@ -1,18 +1,81 @@
-/* Hover annotations for presentation. pointer-events stay on the page;
-   the tooltip ignores clicks so links/buttons underneath still work. */
+/* Three-state view switch: bad | annotated | fixed.
+   Persists via localStorage and ?view= so case studies stay in the same state. */
 
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "annotate-mistakes";
+  var STORAGE_KEY = "portfolio-view";
+  var VIEWS = ["bad", "annotated", "fixed"];
+  var LABELS = { bad: "Bad", annotated: "Annotated", fixed: "Fixed" };
 
-  var toggle = document.createElement("button");
-  toggle.type = "button";
-  toggle.className = "annotate-toggle";
-  toggle.textContent = "Show mistakes";
-  toggle.setAttribute("aria-pressed", "false");
-  toggle.setAttribute("aria-label", "Show mistakes");
-  document.body.appendChild(toggle);
+  function readView() {
+    try {
+      var q = new URLSearchParams(window.location.search).get("view");
+      if (VIEWS.indexOf(q) !== -1) return q;
+      var stored = localStorage.getItem(STORAGE_KEY);
+      if (VIEWS.indexOf(stored) !== -1) return stored;
+      if (sessionStorage.getItem("annotate-mistakes") === "1") return "annotated";
+    } catch (e) {}
+    return "bad";
+  }
+
+  function currentView() {
+    return document.documentElement.getAttribute("data-view") || "bad";
+  }
+
+  function setView(view, persistUrl) {
+    if (VIEWS.indexOf(view) === -1) view = "bad";
+    document.documentElement.setAttribute("data-view", view);
+    try {
+      localStorage.setItem(STORAGE_KEY, view);
+    } catch (e) {}
+    if (persistUrl !== false) {
+      try {
+        var url = new URL(window.location.href);
+        url.searchParams.set("view", view);
+        history.replaceState({}, "", url);
+      } catch (e) {}
+    }
+    syncSwitch(view);
+    applyFixedAlts(view === "fixed");
+    if (view !== "annotated") hideTip();
+    document.dispatchEvent(new CustomEvent("viewchange", { detail: { view: view } }));
+  }
+
+  function applyFixedAlts(isFixed) {
+    var imgs = document.querySelectorAll("[data-alt-fixed]");
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      if (!img.getAttribute("data-alt-bad")) {
+        img.setAttribute("data-alt-bad", img.getAttribute("alt") || "");
+      }
+      img.setAttribute("alt", isFixed ? img.getAttribute("data-alt-fixed") : img.getAttribute("data-alt-bad"));
+    }
+  }
+
+  var switcher = document.createElement("div");
+  switcher.className = "view-switch";
+  switcher.setAttribute("role", "group");
+  switcher.setAttribute("aria-label", "Portfolio view");
+  VIEWS.forEach(function (view) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("data-view-set", view);
+    btn.textContent = LABELS[view];
+    btn.addEventListener("click", function () {
+      setView(view);
+    });
+    switcher.appendChild(btn);
+  });
+  document.body.appendChild(switcher);
+
+  function syncSwitch(view) {
+    var buttons = switcher.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      var on = buttons[i].getAttribute("data-view-set") === view;
+      buttons[i].setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
 
   var tip = document.createElement("div");
   tip.className = "annotate-tip";
@@ -21,25 +84,9 @@
 
   var current = null;
 
-  function isOn() {
-    return document.body.classList.contains("annotate-on");
-  }
-
-  function setOn(on) {
-    document.body.classList.toggle("annotate-on", on);
-    toggle.setAttribute("aria-pressed", on ? "true" : "false");
-    toggle.textContent = on ? "Hide mistakes" : "Show mistakes";
-    try {
-      sessionStorage.setItem(STORAGE_KEY, on ? "1" : "0");
-    } catch (e) {}
-    if (!on) hideTip();
-  }
-
   function parseLabel(raw) {
     var match = String(raw).match(/^(A11Y|UX|Visual):\s*(.*)$/);
-    if (match) {
-      return { kind: match[1], text: match[2] };
-    }
+    if (match) return { kind: match[1], text: match[2] };
     return { kind: "", text: raw };
   }
 
@@ -85,20 +132,16 @@
     placeTip(clientX, clientY);
   }
 
-  toggle.addEventListener("click", function () {
-    setOn(!isOn());
-  });
-
   document.addEventListener(
     "mousemove",
     function (e) {
-      if (!isOn()) return;
-      if (e.target.closest(".annotate-toggle")) {
+      if (currentView() !== "annotated") return;
+      if (e.target.closest(".view-switch")) {
         hideTip();
         return;
       }
       var el = e.target.closest("[data-mistake]");
-      if (!el) {
+      if (!el || el.closest(".view-fixed")) {
         hideTip();
         return;
       }
@@ -109,7 +152,5 @@
 
   document.addEventListener("mouseleave", hideTip);
 
-  try {
-    if (sessionStorage.getItem(STORAGE_KEY) === "1") setOn(true);
-  } catch (e) {}
+  setView(readView(), true);
 })();
