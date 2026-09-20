@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parkwell — Taylor Spline</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/parkwell.css" />
+  </head>
+  <body class="page-parkwell">
+    <header class="site-header">
+      <a class="logo" href="index.html">Taylor Spline</a>
+      <nav class="site-nav">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Info</a>
+      </nav>
+    </header>
+
+    <article class="wrap">
+      <h1>Parkwell</h1>
+      <p class="meta muted">Civic tech · mobile · 2023</p>
+
+      <p>
+        Parkwell is a parking payment product used by a handful of mid-size cities. I was asked to
+        help with the pay-and-extend flow in the mobile app — a deceptively small surface that
+        carries a lot of error states, location quirks, and “I just need this to work on the
+        sidewalk” energy. I collaborated with the in-house designer and an iOS/Android pair over
+        about three months.
+      </p>
+      <p>
+        We looked at how people found their zone, how they paid, and what happened when a session
+        was about to expire. A lot of the existing UI assumed you already knew the mental model.
+        I proposed a tighter sequence and a more honest empty/error treatment, then designed the
+        screens in the current app shell so engineering wouldn’t have to rebuild navigation.
+      </p>
+
+      <h2>Process</h2>
+      <ul class="process-list">
+        <li>App review and analytics walkthrough</li>
+        <li>Flows</li>
+        <li>UI design</li>
+        <li>Prototype</li>
+        <li>Dev handoff</li>
+      </ul>
+
+      <!-- BAD: a single screenshot with no caption explaining the screen or the before/after -->
+      <div class="shot">
+        <img src="assets/ui-park.svg" alt="image" />
+      </div>
+
+      <h2>Outcome</h2>
+      <p>
+        The city partners saw increased engagement with in-app extensions and fewer support tickets
+        around failed payments. The design is in production. I’d like to do a proper follow-up
+        study; we haven’t scheduled one yet.
+      </p>
+
+      <p class="next muted">
+        <a href="northshore.html">Northshore Bank</a>
+        ·
+        <a href="carepath.html">CarePath</a>
+      </p>
+    </article>
+    <!-- BAD: no footer on this page, so no email — contact is inconsistent across the site -->
+  </body>
+</html>

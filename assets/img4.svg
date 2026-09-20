@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <!-- Vague colorful blobs pretending to be "the brand exploration" -->
-  <rect width="800" height="600" fill="#ff00aa"/>
-  <circle cx="200" cy="200" r="160" fill="#00ff88"/>
-  <circle cx="560" cy="180" r="120" fill="#ffff00"/>
-  <circle cx="420" cy="420" r="180" fill="#00e5ff"/>
-  <rect x="60" y="400" width="220" height="140" fill="#ff6b00" transform="rotate(-15 170 470)"/>
-</svg>

@@ -1,43 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>me??</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — Taylor Spline</title>
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/about.css" />
   </head>
-  <body>
-    <!-- BAD: vertical mystery nav, still not semantic, still no Contact label -->
-    <div class="side">
-      <span onclick="location.href='index.html'">n</span>
-      <span onclick="location.href='stuff.html'">Stuff</span>
-      <span onclick="location.href='click.html'">Click</span>
-      <span onclick="location.href='things.html'">???</span>
+  <body class="page-about">
+    <header class="site-header">
+      <a class="logo" href="index.html">Taylor Spline</a>
+      <nav class="site-nav">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Info</a>
+      </nav>
+    </header>
+
+    <div class="wrap">
+      <h1>About</h1>
+      <p class="lede muted">Product designer. Currently independent.</p>
+
+      <div class="about-layout">
+        <!-- BAD: alt text is present but only restates the filename -->
+        <img src="assets/portrait.svg" alt="portrait.svg" />
+        <div class="about-copy">
+          <p>
+            I’ve been designing digital products for about eight years, mostly in finance, health,
+            and the public sector. I like problems that look operational from the outside and turn
+            out to be about trust once you sit with them.
+          </p>
+          <p>
+            Before working independently I was at a product studio and, earlier, on an in-house
+            team at a bank. I work closely with research, engineering, and whoever is actually
+            going to have to live with the thing.
+          </p>
+          <!-- BAD: skipped h2 — page goes h1 → h3 -->
+          <h3>How I work</h3>
+          <p>
+            I start with the constraints, talk to the people who use the product, and try to leave
+            behind something a team can maintain. Tools change; Figma is the current one.
+          </p>
+          <h3>Elsewhere</h3>
+          <p>
+            Writing and talks live in a few different places. If you want a résumé, it’s easier to
+            email me than to hunt for a PDF on this site.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="blink">ABOUT</div>
-    <!-- BAD: no h1 -->
-    <h4 class="me">taylor spline</h4>
-
-    <div class="bio">
-      I am a product designer. I design products. Sometimes I product the design. I enjoy walking, sitting, and the space between walking and sitting. My process is: open Figma, think, close Figma, reopen Figma. I am currently reading a book and also not reading a book.
-    </div>
-
-    <!-- BAD: no alt / nonsense alt; squashed headshot that is a cat -->
-    <img class="stretch" src="assets/img2.svg" alt="img1.jpg" />
-
-    <div class="bio">
-      Previously I was at a company, then a different company, then I freelance which is a type of company. Tools: the usual ones. Awards: I nominated myself.
-    </div>
-
-    <!-- BAD: contact is not here; it's hidden three clicks deep.
-         This link does not say "contact" — first of three hops. -->
-    <div class="bio">
-      if you need to reach me you can
-      <span onclick="location.href='keep-going.html'" style="cursor:pointer;text-decoration:underline;">go here</span>
-      I guess
-    </div>
-
-    <!-- BAD: fake "email" with the same color as the background -->
-    <div class="hidden-contact">taylor@not-the-real-contact.example</div>
+    <footer class="site-footer">
+      <span>© 2026 Taylor Spline · <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a></span>
+    </footer>
   </body>
 </html>

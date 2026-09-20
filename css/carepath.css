@@ -1,0 +1,57 @@
+/* CarePath — wider, less top padding, images in an uneven pair */
+
+.page-carepath .site-header {
+  padding: 20px 48px 16px;
+}
+
+.page-carepath .wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 56px 64px;
+}
+
+.page-carepath h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.page-carepath .meta {
+  margin: 0 0 20px;
+}
+
+.page-carepath h2 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 28px 0 8px;
+}
+
+.page-carepath p {
+  max-width: 62em;
+}
+
+.shot-row {
+  display: flex;
+  gap: 16px;
+  margin: 20px 0 8px;
+  align-items: flex-start;
+}
+
+.shot-row img {
+  width: 58%;
+}
+
+/* BAD: paired images don't share a top edge or width */
+.shot-row img:last-child {
+  width: 38%;
+  margin-top: 18px;
+}
+
+.page-carepath .site-footer {
+  padding: 24px 56px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}

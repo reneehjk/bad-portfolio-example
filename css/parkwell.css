@@ -1,0 +1,48 @@
+/* Parkwell — almost full-bleed, cramped body, larger leftover side margin */
+
+.page-parkwell .site-header {
+  padding: 12px 20px;
+}
+
+.page-parkwell .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 48px;
+}
+
+.page-parkwell h1 {
+  font-size: 23px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.page-parkwell .meta {
+  margin: 4px 0 16px;
+  font-size: 12px;
+}
+
+.page-parkwell h2 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 22px 0 6px;
+}
+
+.page-parkwell p {
+  margin: 0 0 10px;
+  max-width: none;
+}
+
+.page-parkwell .shot {
+  margin: 16px 0 28px;
+}
+
+.page-parkwell .shot img {
+  width: 100%;
+}
+
+.page-parkwell .next {
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+/* BAD: no footer on this page — contact exists on home/about/carepath only */

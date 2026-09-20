@@ -1,124 +1,127 @@
 <!DOCTYPE html>
-<!-- BAD: missing lang attribute on <html> -->
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- BAD: title does not describe the page or the person -->
-    <title>site</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taylor Spline — Product Designer</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
-  <body>
-    <!-- BAD: canvas is captured into a <video> that autoplays with no pause -->
-    <canvas id="bg-canvas" width="240" height="160"></canvas>
-    <video id="bg-video" autoplay loop playsinline muted></video>
-
-    <!-- BAD: modal on load; tiny unlabeled close; Escape is swallowed in JS -->
-    <div id="popup">
-      SIGN UP FOR EMAILS OR ELSE
-      <!-- BAD: not a <button>; 7×7px hit target; no accessible name -->
-      <div id="popup-x"></div>
-      <div class="formy">
-        <!-- BAD: input with no <label>, placeholder disappears on focus -->
-        <input type="text" placeholder="email goes here i guess" />
+  <body class="page-home">
+    <!-- BAD: available-for-work modal. Close is a div (not in the tab order).
+         Focus is not moved into the dialog, so Tab continues through the page behind. -->
+    <div class="modal" role="dialog">
+      <div class="modal-panel" style="padding: 20px 24px 24px;">
+        <div class="modal-close">×</div>
+        <p style="margin: 0 0 8px; font-weight: 600;">Currently available</p>
+        <p class="muted" style="margin: 0;">I’m taking on a few freelance projects for 2026. If you’re hiring, send a note via Info.</p>
       </div>
     </div>
 
-    <!-- BAD: no <header> or <nav>; links don't say where they go -->
-    <div class="topthing">
-      <span class="n1" onclick="location.href='stuff.html'">Stuff</span>
-      <span class="n2" onclick="location.href='about.html'">More</span>
-      <span class="n3" onclick="location.href='click.html'">Click</span>
-      <span class="n4" onclick="location.href='things.html'">???</span>
-      <!-- Contact is intentionally missing from navigation -->
+    <header class="site-header">
+      <a class="logo" href="index.html">Taylor Spline</a>
+      <!-- BAD: nav labels are real but generic — "Work" is just this page, "Info" is not obviously contact -->
+      <nav class="site-nav">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="info.html">Info</a>
+      </nav>
+    </header>
+
+    <!-- BAD: white 15px text on a busy hero with only a light overlay — still fails WCAG contrast -->
+    <div class="hero">
+      <h1>Product designer working on everyday tools.</h1>
+      <p>I design digital products for financial services, health, and civic tech.</p>
     </div>
 
-    <!-- BAD: flashing banner, no prefers-reduced-motion -->
-    <div class="flash">LIMITED TIME PERSONAL BRAND</div>
-    <div class="marquee-fake">welcome to my website welcome to my website welcome to my website please hire me welcome to my website</div>
+    <div class="wrap">
+      <section class="section" id="work">
+        <div class="section-head">
+          <!-- BAD: skipped heading level — h1 in the hero, then h3 here (no h2) -->
+          <h3 style="font-size: 18px; font-weight: 600; margin: 0;">Selected work</h3>
+          <!-- BAD: filter is a div, not a select/button. Menu items stay tabbable while closed. -->
+          <div class="dropdown">
+            <div class="dropdown-trigger" tabindex="0">All projects</div>
+            <div class="dropdown-menu">
+              <div class="dropdown-item" tabindex="0">All projects</div>
+              <div class="dropdown-item" tabindex="0">Product</div>
+              <div class="dropdown-item" tabindex="0">Research</div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Unrelated content FIRST — hero is buried below this wall -->
-    <div class="whisper">
-      <!-- BAD: low-contrast light gray on white, 10px, full viewport width -->
-      A note from my mom's coworker: Taylor is a designer who does design and also other design-related activities including but not limited to designing, thinking about design, talking about design, and occasionally designing. This sentence is intentionally enormous so the line length runs edge to edge with no max-width, which makes reading miserable on a large monitor, which is the point of this example. Anyway here is a recipe for meatloaf that has nothing to do with the portfolio: mix ground whatever with breadcrumbs and bake until you remember you were supposed to put the hero section at the top of the page.
+        <div class="work-grid">
+          <article>
+            <a class="project-card" href="northshore.html">
+              <img src="assets/ui-bank-1.svg" alt="image" />
+              <h3>Northshore Bank</h3>
+              <p class="project-meta muted">Consumer banking · 2024</p>
+            </a>
+          </article>
+          <article>
+            <a class="project-card" href="carepath.html">
+              <img src="assets/ui-health.svg" alt="portfolio piece" />
+              <h3>CarePath</h3>
+              <p class="project-meta muted">Healthcare · 2023</p>
+            </a>
+          </article>
+          <article>
+            <a class="project-card" href="parkwell.html">
+              <img src="assets/ui-park.svg" alt="ui-park.svg" />
+              <h3>Parkwell</h3>
+              <p class="project-meta muted">Civic tech · 2023</p>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="intro-block">
+        <div>
+          <h2>A bit about me</h2>
+          <p>
+            I’m a product designer based in Toronto. I care about making complex systems feel
+            straightforward, and I’ve spent the last few years in regulated spaces where the
+            details actually matter.
+          </p>
+          <!-- BAD: looks like a button, implemented as a div with onclick instead of <a> or <button> -->
+          <div class="btn" onclick="location.href='about.html'">More about me</div>
+        </div>
+        <div>
+          <p class="muted" style="margin: 0 0 8px;">Notes from collaborators</p>
+          <!-- BAD: testimonial carousel autoplays; there is no pause control -->
+          <div class="carousel">
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+              <div class="carousel-slide">
+                <p>“Taylor is a strong partner in the room and keeps the work moving.”</p>
+                <p class="muted" style="margin-top: 8px;">Design manager, former team</p>
+              </div>
+              <div class="carousel-slide">
+                <p>“Brought clarity to a messy problem space and left us with a system we could keep using.”</p>
+                <p class="muted" style="margin-top: 8px;">PM, CarePath</p>
+              </div>
+              <div class="carousel-slide">
+                <p>“Easy to work with. Delivered on time.”</p>
+                <p class="muted" style="margin-top: 8px;">Engineering lead, Northshore</p>
+              </div>
+            </div>
+            </div>
+            <div class="carousel-dots">
+              <div class="carousel-dot is-active"></div>
+              <div class="carousel-dot"></div>
+              <div class="carousel-dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <div class="clutter">
-      <div>current weather: hot probably</div>
-      <div>my favorite color is a secret</div>
-      <div>testimonials: "yes" — someone</div>
-      <div>available for work or not depending</div>
-      <div>random number: 7</div>
-      <div>this box is here so there is no whitespace</div>
-      <div>hire me hire me hire me hire me</div>
-      <div>also I use Figma</div>
-    </div>
+    <!-- BAD: contact is in the footer here (and on About / CarePath) but missing on other pages -->
+    <footer class="site-footer">
+      <span>© 2026 Taylor Spline</span>
+      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
+    </footer>
 
-    <!-- BAD: color as the only indicator -->
-    <div class="whisper">To see a case study, click the red one.</div>
-    <div class="swatch-row">
-      <div class="swatch swatch-green" data-color-target data-href=""></div>
-      <div class="swatch swatch-blue" data-color-target data-href=""></div>
-      <div class="swatch swatch-red" data-color-target data-href="stuff.html"></div>
-    </div>
-
-    <!-- BAD: "selected work" with no project names, no hierarchy, unlabeled cards -->
-    <div class="work-label">selected work or whatever</div>
-    <div class="work-row">
-      <div class="work-card" onclick="location.href='stuff.html'">
-        <img src="assets/img1.svg" alt="img1.jpg" />
-        <span>Stuff</span>
-        <span class="work-meta">fintech? food? yes</span>
-      </div>
-      <div class="work-card" onclick="location.href='click.html'">
-        <img src="assets/img3.svg" alt="photo.png" />
-        <span>Click</span>
-        <span class="work-meta">healthcare skateboards</span>
-      </div>
-      <div class="work-card" onclick="location.href='things.html'">
-        <img src="assets/img4.svg" />
-        <span>???</span>
-        <span class="work-meta">parking dating noodles</span>
-      </div>
-    </div>
-
-    <!-- BAD: custom dropdown, not a <select> or <button>, keyboard ignored -->
-    <div class="dropdown-wrap">
-      <span>pick a thing (mouse only):</span>
-      <div id="dropdown-trigger">▼ choose</div>
-      <div id="dropdown-menu">
-        <div class="dropdown-item" onclick="location.href='stuff.html'">Stuff</div>
-        <div class="dropdown-item" onclick="location.href='click.html'">the other one</div>
-        <div class="dropdown-item" onclick="location.href='things.html'">???</div>
-        <div class="dropdown-item">this one does nothing</div>
-      </div>
-    </div>
-
-    <!-- BAD: stretched + missing/nonsense alt text -->
-    <img class="stretch" src="assets/img2.svg" />
-    <!-- BAD: no alt attribute at all -->
-    <img class="squish" src="assets/img1.svg" alt="img1.jpg" />
-    <!-- BAD: nonsense alt text -->
-    <img class="blob" src="assets/img4.svg" alt="asdf" />
-
-    <div class="overlap">this is overlapping on purpose</div>
-
-    <!-- BAD: hero buried below unrelated content; no <h1>; skipped to a random h4 -->
-    <h4 class="hero">i do design</h4>
-    <div class="hero-sub">taylor spline · product adjacent</div>
-
-    <!-- BAD: form inputs, no labels, placeholder-only -->
-    <div class="formy">
-      <input type="text" placeholder="name" />
-      <input type="text" placeholder="why are you emailing" />
-      <!-- BAD: not a <button> -->
-      <div onclick="alert('it did not send')">ok</div>
-    </div>
-
-    <div class="tiny-legal">
-      copyright i don't know, also there is still no contact information on this page.
-    </div>
-    <div class="footerish">THE END (of the homepage) (the hero was above, you missed it)</div>
-
-    <script src="js/bad.js"></script>
+    <script src="js/site.js"></script>
   </body>
 </html>

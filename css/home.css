@@ -1,0 +1,133 @@
+/* Home — slightly tighter header, wider content, hero with no overlay */
+
+.page-home .site-header {
+  padding: 14px 32px;
+}
+
+.page-home .logo {
+  font-size: 16px;
+}
+
+.page-home .site-nav {
+  font-size: 13px;
+}
+
+/* BAD: white text over a busy, light hero image with no dark overlay — fails contrast */
+.hero {
+  background:
+    linear-gradient(rgba(30, 58, 95, 0.32), rgba(30, 58, 95, 0.4)),
+    url("../assets/hero.svg") center / cover no-repeat;
+  color: #ffffff;
+  padding: 92px 32px 80px;
+}
+
+.hero h1 {
+  /* BAD: 28px heading; other pages use 24px / 32px — no type scale */
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  max-width: 520px;
+}
+
+.hero p {
+  font-size: 15px;
+  margin: 0;
+  max-width: 460px;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section {
+  padding: 48px 0 36px;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-head h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* BAD: work grid almost lines up — last card sits 12px lower, gaps are uneven */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 18px;
+}
+
+.work-grid article:last-child {
+  margin-top: 12px;
+}
+
+.work-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.work-grid article:nth-child(2) img {
+  height: 168px;
+}
+
+.project-meta {
+  font-size: 12px;
+}
+
+.intro-block {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  padding: 28px 0 56px;
+}
+
+.intro-block h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.page-home .btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.carousel {
+  margin: 8px 0 0;
+}
+
+.carousel-dots {
+  padding: 0 24px 16px;
+}
+
+.carousel-slide p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.page-home .site-footer {
+  padding: 20px 32px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .work-grid,
+  .intro-block {
+    grid-template-columns: 1fr;
+  }
+  .work-grid article:last-child {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,43 @@
+/* Info — cramped top, extra-wide form, accent used as text color here */
+
+.page-info .site-header {
+  padding: 10px 36px;
+}
+
+.page-info .logo {
+  font-size: 17px;
+}
+
+.page-info .site-nav a {
+  font-size: 12px;
+  /* BAD: accent used for nav only on this page */
+  color: var(--accent);
+}
+
+.page-info .wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 36px 96px;
+}
+
+.page-info h1 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.page-info form {
+  margin-top: 20px;
+}
+
+.page-info .btn {
+  margin-top: 16px;
+  padding: 10px 22px;
+  font-size: 14px;
+  border: 0;
+}
+
+.page-info .site-footer {
+  padding: 32px 36px;
+  font-size: 12px;
+}

@@ -1,0 +1,51 @@
+/* Northshore case study — tighter measure, extra top space, mixed image sizes */
+
+.page-northshore .site-header {
+  padding: 16px 24px;
+}
+
+.page-northshore .wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.page-northshore h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.page-northshore .meta {
+  margin: 0 0 32px;
+  font-size: 13px;
+}
+
+.page-northshore h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 36px 0 10px;
+}
+
+.page-northshore p {
+  margin: 0 0 12px;
+}
+
+.shots {
+  margin: 24px 0;
+}
+
+.shots img:first-child {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* BAD: second screenshot is a different width, no caption */
+.shots img:last-child {
+  width: 72%;
+}
+
+.page-northshore .site-footer {
+  padding: 18px 24px;
+  font-size: 12px;
+}
