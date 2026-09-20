@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- BAD: missing lang attribute on <html> -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- BAD: title does not describe the page or the person -->
+    <title>site</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- BAD: auto-playing audio, no controls, no pause UI -->
+    <audio id="bg-audio" src="assets/beep.wav" autoplay loop></audio>
+    <!-- BAD: canvas is captured into a <video> that autoplays with no pause -->
+    <canvas id="bg-canvas" width="240" height="160"></canvas>
+    <video id="bg-video" autoplay loop playsinline muted></video>
+
+    <!-- BAD: modal on load; tiny unlabeled close; Escape is swallowed in JS -->
+    <div id="popup">
+      SIGN UP FOR EMAILS OR ELSE
+      <!-- BAD: not a <button>; 7×7px hit target; no accessible name -->
+      <div id="popup-x"></div>
+      <div class="formy">
+        <!-- BAD: input with no <label>, placeholder disappears on focus -->
+        <input type="text" placeholder="email goes here i guess" />
+      </div>
+    </div>
+
+    <!-- BAD: no <header> or <nav>; links don't say where they go -->
+    <div class="topthing">
+      <span class="n1" onclick="location.href='stuff.html'">Stuff</span>
+      <span class="n2" onclick="location.href='about.html'">More</span>
+      <span class="n3" onclick="location.href='click.html'">Click</span>
+      <span class="n4" onclick="location.href='things.html'">???</span>
+      <!-- Contact is intentionally missing from navigation -->
+    </div>
+
+    <!-- BAD: flashing banner, no prefers-reduced-motion -->
+    <div class="flash">LIMITED TIME PERSONAL BRAND</div>
+    <div class="marquee-fake">welcome to my website welcome to my website welcome to my website please hire me welcome to my website</div>
+
+    <!-- Unrelated content FIRST — hero is buried below this wall -->
+    <div class="whisper">
+      <!-- BAD: low-contrast light gray on white, 10px, full viewport width -->
+      A note from my mom's coworker: Taylor is a designer who does design and also other design-related activities including but not limited to designing, thinking about design, talking about design, and occasionally designing. This sentence is intentionally enormous so the line length runs edge to edge with no max-width, which makes reading miserable on a large monitor, which is the point of this example. Anyway here is a recipe for meatloaf that has nothing to do with the portfolio: mix ground whatever with breadcrumbs and bake until you remember you were supposed to put the hero section at the top of the page.
+    </div>
+
+    <div class="clutter">
+      <div>current weather: hot probably</div>
+      <div>my favorite color is a secret</div>
+      <div>testimonials: "yes" — someone</div>
+      <div>available for work or not depending</div>
+      <div>random number: 7</div>
+      <div>this box is here so there is no whitespace</div>
+      <div>hire me hire me hire me hire me</div>
+      <div>also I use Figma</div>
+    </div>
+
+    <!-- BAD: color as the only indicator -->
+    <div class="whisper">To see a case study, click the red one.</div>
+    <div class="swatch-row">
+      <div class="swatch swatch-green" data-color-target data-href=""></div>
+      <div class="swatch swatch-blue" data-color-target data-href=""></div>
+      <div class="swatch swatch-red" data-color-target data-href="stuff.html"></div>
+    </div>
+
+    <!-- BAD: custom dropdown, not a <select> or <button>, keyboard ignored -->
+    <div class="dropdown-wrap">
+      <span>pick a thing (mouse only):</span>
+      <div id="dropdown-trigger">▼ choose</div>
+      <div id="dropdown-menu">
+        <div class="dropdown-item" onclick="location.href='stuff.html'">Stuff</div>
+        <div class="dropdown-item" onclick="location.href='click.html'">the other one</div>
+        <div class="dropdown-item">this one does nothing</div>
+      </div>
+    </div>
+
+    <!-- BAD: stretched + missing/nonsense alt text -->
+    <img class="stretch" src="assets/img2.svg" />
+    <!-- BAD: no alt attribute at all -->
+    <img class="squish" src="assets/img1.svg" alt="img1.jpg" />
+    <!-- BAD: nonsense alt text -->
+    <img class="blob" src="assets/img4.svg" alt="asdf" />
+
+    <div class="overlap">this is overlapping on purpose</div>
+
+    <!-- BAD: hero buried below unrelated content; no <h1>; skipped to a random h4 -->
+    <h4 class="hero">i do design</h4>
+    <div class="hero-sub">taylor spline · product adjacent</div>
+
+    <!-- BAD: form inputs, no labels, placeholder-only -->
+    <div class="formy">
+      <input type="text" placeholder="name" />
+      <input type="text" placeholder="why are you emailing" />
+      <!-- BAD: not a <button> -->
+      <div onclick="alert('it did not send')">ok</div>
+    </div>
+
+    <div class="tiny-legal">
+      copyright i don't know, also there is still no contact information on this page.
+    </div>
+    <div class="footerish">THE END (of the homepage) (the hero was above, you missed it)</div>
+
+    <script src="js/bad.js"></script>
+  </body>
+</html>

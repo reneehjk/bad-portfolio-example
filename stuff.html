@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- BAD: title still useless -->
+    <title>p1</title>
+    <link rel="stylesheet" href="css/stuff.css" />
+  </head>
+  <body>
+    <!-- BAD: different nav pattern than the homepage; still not a <nav> -->
+    <div class="bar">
+      <span onclick="location.href='index.html'">back?</span>
+      <span onclick="location.href='click.html'">Click</span>
+      <span onclick="location.href='about.html'">More</span>
+      <span onclick="location.href='things.html'">n/a</span>
+    </div>
+
+    <!-- BAD: no h1; decorative h4; no problem statement -->
+    <h4 class="weird-title">the banking app but wait</h4>
+
+    <div class="flash2">NEW CASE STUDY NEW CASE STUDY</div>
+
+    <!-- BAD: jump straight to a solution that does not match the implied problem -->
+    <div class="solution">
+      So the solution was a prix-fixe menu. I made the type bigger in some places and smaller in other places. Users can now "order" a checking account the way you order soup. I did not include any screenshots of the actual interface because the file was on a laptop I left at a WeWork.
+    </div>
+
+    <!-- BAD: no visuals of the actual UI — stretched sandwich photo instead -->
+    <img class="stretch" src="assets/img1.svg" alt="img1.jpg" />
+    <img class="squish" src="assets/img5.svg" />
+
+    <!-- BAD: irrelevant tangent about lunch -->
+    <div class="tangent">
+      Quick aside: for lunch that day I had a turkey sandwich that was honestly too dry, and I think that dryness influenced the visual language? Like the breadcrumbs were a metaphor for information architecture. I also watched two episodes of a show I will not name. Anyway back to the work: I used a 12-column grid except when I didn't. Stakeholders said "interesting" which I took as a yes. The research sample was my roommate.
+    </div>
+
+    <div class="misalign">role: everything</div>
+
+    <!-- BAD: vague outcomes -->
+    <div class="outcome">
+      Outcomes: it went well. Engagement went up by a number. Conversion was better, or similar. The client is still answering emails sometimes. Success.
+    </div>
+
+    <!-- BAD: skipped heading levels, another random h4 -->
+    <h4>next</h4>
+    <div class="solution" onclick="location.href='click.html'" style="cursor:pointer;text-decoration:underline;">
+      there is more work probably
+    </div>
+
+    <script src="js/bad.js"></script>
+  </body>
+</html>

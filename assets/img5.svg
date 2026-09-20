@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#222"/>
+  <text x="200" y="150" text-anchor="middle" font-size="28" font-family="Courier New, monospace" fill="#0f0">TODO: screenshot</text>
+  <text x="200" y="190" text-anchor="middle" font-size="14" font-family="Courier New, monospace" fill="#0f0">(never added)</text>
+</svg>

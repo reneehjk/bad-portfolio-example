@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Unrelated "photo": a cat, not product UI -->
+  <rect width="800" height="600" fill="#7ec8e3"/>
+  <circle cx="400" cy="340" r="140" fill="#f4a261"/>
+  <polygon points="280,240 300,120 360,250" fill="#f4a261"/>
+  <polygon points="520,240 500,120 440,250" fill="#f4a261"/>
+  <circle cx="360" cy="320" r="18" fill="#222"/>
+  <circle cx="440" cy="320" r="18" fill="#222"/>
+  <ellipse cx="400" cy="370" rx="20" ry="12" fill="#e76f51"/>
+  <text x="400" y="560" text-anchor="middle" font-size="36" font-family="Impact, sans-serif" fill="#fff">MY CAT PROBABLY</text>
+</svg>

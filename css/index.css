@@ -1,0 +1,304 @@
+/* ============================================================
+   INDEX — neon green / orange / Comic Sans chaos
+   Deliberately inconsistent with every other page.
+   ============================================================ */
+
+/* BAD: remove default focus outlines sitewide; no replacement :focus style */
+* {
+  outline: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* BAD: clashing palette — neon green background, orange text */
+body {
+  background: #39ff14;
+  color: #ff6b00;
+  /* BAD: tiny body text */
+  font-size: 10px;
+  /* BAD: 3+ typefaces on one page, starting with Comic Sans */
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  /* BAD: huge line lengths, no max-width */
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+a {
+  color: #ff00aa;
+  text-decoration: none;
+}
+
+/* BAD: non-semantic "nav" is just a cluttered row of spans */
+.topthing {
+  background: #ff00aa;
+  padding: 3px 2px 18px 90px;
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.n1 {
+  font-family: Impact, Haettenschweiler, sans-serif;
+  font-size: 28px;
+  color: yellow;
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+.n2 {
+  font-family: Papyrus, "Bradley Hand", fantasy;
+  font-size: 9px;
+  color: #00ffff;
+  cursor: pointer;
+  margin-top: 22px;
+  margin-left: 40px;
+}
+
+.n3 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+
+.n4 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11px;
+  color: #39ff14;
+  cursor: pointer;
+  transform: rotate(-8deg);
+}
+
+/* BAD: flashing/animated banner, no prefers-reduced-motion */
+.flash {
+  font-family: Impact, sans-serif;
+  font-size: 42px;
+  color: red;
+  background: yellow;
+  text-align: center;
+  animation: flashbang 0.45s steps(2, end) infinite;
+  margin: 0;
+  padding: 2px;
+}
+
+@keyframes flashbang {
+  0% { background: yellow; color: red; transform: scale(1); }
+  100% { background: red; color: yellow; transform: scale(1.04); }
+}
+
+.marquee-fake {
+  font-family: Papyrus, fantasy;
+  font-size: 18px;
+  white-space: nowrap;
+  animation: slide 6s linear infinite;
+}
+
+@keyframes slide {
+  from { margin-left: 100%; }
+  to { margin-left: -100%; }
+}
+
+/* BAD: low-contrast text — light gray on white */
+.whisper {
+  color: #d8d8d8;
+  background: #ffffff;
+  font-size: 10px;
+  padding: 8px 0;
+  /* BAD: no max-width, text spans the full viewport */
+  width: 100%;
+}
+
+.clutter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.clutter > div {
+  border: 3px solid magenta;
+  margin: 1px 47px 2px 0;
+  padding: 1px 12px 20px 3px;
+  background: #ffff00;
+  color: #0000ff;
+  font-family: "Courier New", monospace;
+}
+
+/* BAD: hero is not visually primary — tiny, misaligned, after a wall of junk */
+.hero {
+  font-family: Impact, sans-serif;
+  font-size: 13px;
+  color: #ff6b00;
+  margin: 80px 0 0 12px;
+  transform: rotate(3deg);
+}
+
+.hero-sub {
+  font-family: Papyrus, fantasy;
+  font-size: 9px;
+  color: #aa7700;
+  margin-left: 200px;
+}
+
+/* BAD: overlapping + misaligned blocks */
+.overlap {
+  position: relative;
+  left: -36px;
+  margin-top: -24px;
+  background: rgba(255, 0, 0, 0.7);
+  color: #00ff00;
+  padding: 6px 40px;
+  z-index: 3;
+  font-family: "Times New Roman", serif;
+  font-size: 22px;
+}
+
+/* BAD: stretched / squished images */
+.stretch {
+  width: 92%;
+  height: 48px;
+  display: block;
+}
+
+.squish {
+  width: 52px;
+  height: 320px;
+  display: inline-block;
+}
+
+.blob {
+  width: 220px;
+  height: 90px;
+  margin-left: -20px;
+}
+
+/* Color-only targets */
+.swatch-row {
+  display: flex;
+  gap: 8px;
+  margin: 12px 4px;
+}
+
+.swatch {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+.swatch-red { background: #e10600; }
+.swatch-green { background: #00a651; }
+.swatch-blue { background: #0033a0; }
+
+/* BAD: custom dropdown — looks like a control, isn't a button/select */
+.dropdown-wrap {
+  margin: 10px 2px 40px 2px;
+  font-family: Impact, sans-serif;
+  font-size: 14px;
+}
+
+#dropdown-trigger {
+  background: purple;
+  color: lime;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#dropdown-menu {
+  display: none;
+  background: white;
+  color: black;
+  border: 4px dashed orange;
+  width: 160px;
+}
+
+.dropdown-item {
+  padding: 2px;
+  cursor: pointer;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.dropdown-item:hover {
+  background: cyan;
+}
+
+/* BAD: modal overlay with a tiny close hit target */
+#popup {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 30%;
+  width: 40%;
+  background: #000;
+  color: #0f0;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  padding: 40px 8px 8px 8px;
+  z-index: 9999;
+  border: 8px solid fuchsia;
+}
+
+#popup-x {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  background: #333;
+  cursor: pointer;
+}
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 120px;
+  z-index: 5;
+  pointer-events: none;
+  border: 6px solid red;
+}
+
+#bg-canvas {
+  position: absolute;
+  left: -9999px;
+}
+
+#bg-audio {
+  /* BAD: in the DOM, autoplaying, no controls, not pauseable from the UI */
+  position: absolute;
+  left: -9999px;
+}
+
+.formy {
+  background: white;
+  padding: 4px;
+  margin: 8px 0;
+}
+
+.formy input {
+  font-size: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+}
+
+.tiny-legal {
+  color: #eee;
+  background: #fff;
+  font-size: 8px;
+}
+
+.footerish {
+  margin-top: 4px;
+  font-family: Impact, sans-serif;
+  font-size: 30px;
+  color: blue;
+}

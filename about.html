@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>me??</title>
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <!-- BAD: vertical mystery nav, still not semantic, still no Contact label -->
+    <div class="side">
+      <span onclick="location.href='index.html'">n</span>
+      <span onclick="location.href='stuff.html'">Stuff</span>
+      <span onclick="location.href='click.html'">Click</span>
+      <span onclick="location.href='things.html'">???</span>
+    </div>
+
+    <div class="blink">ABOUT</div>
+    <!-- BAD: no h1 -->
+    <h4 class="me">taylor spline</h4>
+
+    <div class="bio">
+      I am a product designer. I design products. Sometimes I product the design. I enjoy walking, sitting, and the space between walking and sitting. My process is: open Figma, think, close Figma, reopen Figma. I am currently reading a book and also not reading a book.
+    </div>
+
+    <!-- BAD: no alt / nonsense alt; squashed headshot that is a cat -->
+    <img class="stretch" src="assets/img2.svg" alt="img1.jpg" />
+
+    <div class="bio">
+      Previously I was at a company, then a different company, then I freelance which is a type of company. Tools: the usual ones. Awards: I nominated myself.
+    </div>
+
+    <!-- BAD: contact is not here; it's hidden three clicks deep.
+         This link does not say "contact" — first of three hops. -->
+    <div class="bio">
+      if you need to reach me you can
+      <span onclick="location.href='keep-going.html'" style="cursor:pointer;text-decoration:underline;">go here</span>
+      I guess
+    </div>
+
+    <!-- BAD: fake "email" with the same color as the background -->
+    <div class="hidden-contact">taylor@not-the-real-contact.example</div>
+  </body>
+</html>

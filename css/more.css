@@ -1,0 +1,42 @@
+/* ============================================================
+   KEEP-GOING / ALMOST — olive / navy / Garamond
+   Intermediate pages whose only job is to hide contact.
+   ============================================================ */
+
+* {
+  outline: none !important;
+}
+
+body {
+  background: #556b2f;
+  color: #001f5b;
+  font-size: 10px;
+  font-family: Garamond, "Palatino Linotype", serif;
+  margin: 30px;
+}
+
+.goforth {
+  font-family: "Comic Sans MS", cursive;
+  font-size: 40px;
+  color: #ff8c00;
+  cursor: pointer;
+}
+
+.hint {
+  font-family: Arial, sans-serif;
+  color: #6a7a5a;
+  background: #556b2f;
+  font-size: 9px;
+}
+
+.almost-body {
+  background: #1a1a2e;
+  color: #e94560;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.almost-body .goforth {
+  font-family: Impact, sans-serif;
+  color: #0f0;
+  font-size: 14px;
+}
