@@ -1,0 +1,62 @@
+/* Presentation annotation layer. Inactive until body.annotate-on. */
+
+.annotate-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10000;
+  font: 600 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 8px 12px;
+  border: 1px solid #1e3a5f;
+  background: #ffffff;
+  color: #1e3a5f;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.15);
+}
+
+.annotate-toggle[aria-pressed="true"] {
+  background: #1e3a5f;
+  color: #ffffff;
+}
+
+.annotate-tip {
+  position: fixed;
+  z-index: 10001;
+  max-width: 280px;
+  padding: 8px 10px;
+  background: #1a1a1a;
+  color: #ffffff;
+  font: 12px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  border-radius: 4px;
+  pointer-events: none;
+  display: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.annotate-tip.is-visible {
+  display: block;
+}
+
+.annotate-tip .annotate-kind {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f2c4c4;
+  margin-bottom: 2px;
+}
+
+/* Discoverability while mode is on — skip body so the page isn't boxed in */
+body.annotate-on [data-mistake]:not(body) {
+  outline: 1px dashed rgba(196, 28, 28, 0.4);
+  outline-offset: 3px;
+  cursor: help;
+}
+
+body.annotate-on [data-mistake].is-annotate-hover,
+body.annotate-on.is-annotate-hover {
+  outline: 2px dashed #c41c1c;
+  outline-offset: 3px;
+}

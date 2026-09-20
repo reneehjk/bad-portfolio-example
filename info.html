@@ -6,11 +6,14 @@
     <title>Info — Taylor Spline</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/info.css" />
+    <link rel="stylesheet" href="css/annotate.css" />
   </head>
-  <body class="page-info">
+  <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
+  <body class="page-info" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav">
+      <!-- BAD: accent used for nav only on this page -->
+      <nav class="site-nav" data-mistake="Visual: Accent used for nav only on this page">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
@@ -18,13 +21,13 @@
     </header>
 
     <div class="wrap">
-      <h1>Info</h1>
-      <p class="muted">
+      <h1 data-mistake="Visual: 22px heading — other pages use 24 / 26 / 28 / 32px; no type scale">Info</h1>
+      <p class="muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">
         For new projects, speaking, or general questions. I usually reply within a few days.
       </p>
 
       <!-- BAD: inputs have no <label>; placeholders are the only accessible name, and they disappear once the user types -->
-      <form action="#" method="post" onsubmit="return false;">
+      <form action="#" method="post" onsubmit="return false;" data-mistake="A11Y: Inputs have no label; placeholders are the only accessible name">
         <div class="field">
           <input type="text" name="name" placeholder="Name" />
         </div>
@@ -35,13 +38,15 @@
           <textarea name="message" placeholder="Message"></textarea>
         </div>
         <!-- BAD: submit is a div with onclick, not a <button type="submit"> -->
-        <div class="btn btn-accent" onclick="alert('Thanks — I’ll get back to you.')">Send</div>
+        <div class="btn btn-accent" onclick="alert('Thanks — I’ll get back to you.')" data-mistake="A11Y: Submit is a div with onclick, not a button">Send</div>
       </form>
     </div>
 
     <!-- BAD: this page has a contact form but no email in the footer (unlike Home / About) -->
-    <footer class="site-footer">
+    <footer class="site-footer" data-mistake="UX: Contact form but no email in the footer (unlike Home / About)">
       <span>© 2026 Taylor Spline</span>
     </footer>
+
+    <script src="js/annotate.js"></script>
   </body>
 </html>

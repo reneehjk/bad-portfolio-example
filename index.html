@@ -6,22 +6,24 @@
     <title>Taylor Spline — Product Designer</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/annotate.css" />
   </head>
-  <body class="page-home">
+  <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
+  <body class="page-home" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <!-- BAD: available-for-work modal. Close is a div (not in the tab order).
          Focus is not moved into the dialog, so Tab continues through the page behind. -->
-    <div class="modal" role="dialog">
+    <div class="modal" role="dialog" data-mistake="A11Y: Modal does not move focus inward; Tab continues through the page behind">
       <div class="modal-panel" style="padding: 20px 24px 24px;">
-        <div class="modal-close">×</div>
+        <div class="modal-close" data-mistake="A11Y: Close control is a div, not a button — skipped when tabbing">×</div>
         <p style="margin: 0 0 8px; font-weight: 600;">Currently available</p>
-        <p class="muted" style="margin: 0;">I’m taking on a few freelance projects for 2026. If you’re hiring, send a note via Info.</p>
+        <p class="muted" style="margin: 0;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">I’m taking on a few freelance projects for 2026. If you’re hiring, send a note via Info.</p>
       </div>
     </div>
 
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
       <!-- BAD: nav labels are real but generic — "Work" is just this page, "Info" is not obviously contact -->
-      <nav class="site-nav">
+      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
@@ -29,8 +31,8 @@
     </header>
 
     <!-- BAD: white 15px text on a busy hero with only a light overlay — still fails WCAG contrast -->
-    <div class="hero">
-      <h1>Product designer working on everyday tools.</h1>
+    <div class="hero" data-mistake="A11Y: White 15px text on a busy hero with only a light overlay — still fails WCAG contrast">
+      <h1 data-mistake="Visual: 28px heading; other pages use 24px / 32px — no type scale">Product designer working on everyday tools.</h1>
       <p>I design digital products for financial services, health, and civic tech.</p>
     </div>
 
@@ -38,9 +40,9 @@
       <section class="section" id="work">
         <div class="section-head">
           <!-- BAD: skipped heading level — h1 in the hero, then h3 here (no h2) -->
-          <h3 style="font-size: 18px; font-weight: 600; margin: 0;">Selected work</h3>
+          <h3 style="font-size: 18px; font-weight: 600; margin: 0;" data-mistake="A11Y: Skipped heading level — h1 in the hero, then h3 here (no h2)">Selected work</h3>
           <!-- BAD: filter is a div, not a select/button. Menu items stay tabbable while closed. -->
-          <div class="dropdown">
+          <div class="dropdown" data-mistake="A11Y: Filter is a div, not a select/button. Closed menu items stay in the tab order">
             <div class="dropdown-trigger" tabindex="0">All projects</div>
             <div class="dropdown-menu">
               <div class="dropdown-item" tabindex="0">All projects</div>
@@ -50,26 +52,27 @@
           </div>
         </div>
 
-        <div class="work-grid">
+        <!-- BAD: work grid almost lines up — last card sits 12px lower, gaps are uneven -->
+        <div class="work-grid" data-mistake="Visual: Work grid almost lines up — last card sits lower, gaps are uneven">
           <article>
             <a class="project-card" href="northshore.html">
-              <img src="assets/ui-bank-1.svg" alt="image" />
+              <img src="assets/ui-bank-1.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
               <h3>Northshore Bank</h3>
-              <p class="project-meta muted">Consumer banking · 2024</p>
+              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Consumer banking · 2024</p>
             </a>
           </article>
           <article>
             <a class="project-card" href="carepath.html">
-              <img src="assets/ui-health.svg" alt="portfolio piece" />
+              <img src="assets/ui-health.svg" alt="portfolio piece" data-mistake="A11Y: Alt text present but meaningless" />
               <h3>CarePath</h3>
-              <p class="project-meta muted">Healthcare · 2023</p>
+              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Healthcare · 2023</p>
             </a>
           </article>
           <article>
             <a class="project-card" href="parkwell.html">
-              <img src="assets/ui-park.svg" alt="ui-park.svg" />
+              <img src="assets/ui-park.svg" alt="ui-park.svg" data-mistake="A11Y: Alt text present but meaningless" />
               <h3>Parkwell</h3>
-              <p class="project-meta muted">Civic tech · 2023</p>
+              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Civic tech · 2023</p>
             </a>
           </article>
         </div>
@@ -84,12 +87,12 @@
             details actually matter.
           </p>
           <!-- BAD: looks like a button, implemented as a div with onclick instead of <a> or <button> -->
-          <div class="btn" onclick="location.href='about.html'">More about me</div>
+          <div class="btn" onclick="location.href='about.html'" data-mistake="A11Y: Looks like a button, implemented as a div with onclick instead of a link or button">More about me</div>
         </div>
         <div>
-          <p class="muted" style="margin: 0 0 8px;">Notes from collaborators</p>
+          <p class="muted" style="margin: 0 0 8px;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Notes from collaborators</p>
           <!-- BAD: testimonial carousel autoplays; there is no pause control -->
-          <div class="carousel">
+          <div class="carousel" data-mistake="A11Y: Carousel autoplays with no pause control">
             <div class="carousel-viewport">
               <div class="carousel-track">
               <div class="carousel-slide">
@@ -117,11 +120,12 @@
     </div>
 
     <!-- BAD: contact is in the footer here (and on About / CarePath) but missing on other pages -->
-    <footer class="site-footer">
+    <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on About / CarePath) but missing on other pages">
       <span>© 2026 Taylor Spline</span>
       <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
     </footer>
 
     <script src="js/site.js"></script>
+    <script src="js/annotate.js"></script>
   </body>
 </html>

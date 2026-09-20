@@ -2,7 +2,7 @@
 
 A product-design portfolio built to demonstrate **mistakes people actually ship** — not a parody. It should look like a real site someone published, while still giving a presentation clear things to point at.
 
-Every intentional issue is labeled in the source (`<!-- BAD: ... -->` / `/* BAD: ... */`). Search the repo for `BAD:` during the talk.
+Every intentional issue is labeled in the source (`<!-- BAD: ... -->` / `data-mistake="..."`). During a talk, click **Show mistakes** (bottom-right) and hover highlighted regions — tooltips are prefixed **A11Y**, **UX**, or **Visual**. The toggle stays on as you move between pages. Click **Hide mistakes** to see the site as a visitor would.
 
 Open `index.html` in a browser, or run `python3 -m http.server` from this folder.
 

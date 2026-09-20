@@ -6,11 +6,13 @@
     <title>About — Taylor Spline</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/annotate.css" />
   </head>
-  <body class="page-about">
+  <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
+  <body class="page-about" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav">
+      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
@@ -18,12 +20,13 @@
     </header>
 
     <div class="wrap">
-      <h1>About</h1>
-      <p class="lede muted">Product designer. Currently independent.</p>
+      <h1 data-mistake="Visual: 24px heading — other pages use 22 / 26 / 28 / 32px; no type scale">About</h1>
+      <p class="lede muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Product designer. Currently independent.</p>
 
-      <div class="about-layout">
+      <!-- BAD: 28px vs 40px used elsewhere — gap doesn't match the home grid -->
+      <div class="about-layout" data-mistake="Visual: Gap doesn't match the home grid — spacing drifted across pages">
         <!-- BAD: alt text is present but only restates the filename -->
-        <img src="assets/portrait.svg" alt="portrait.svg" />
+        <img src="assets/portrait.svg" alt="portrait.svg" data-mistake="A11Y: Alt text present but meaningless" />
         <div class="about-copy">
           <p>
             I’ve been designing digital products for about eight years, mostly in finance, health,
@@ -36,7 +39,7 @@
             going to have to live with the thing.
           </p>
           <!-- BAD: skipped h2 — page goes h1 → h3 -->
-          <h3>How I work</h3>
+          <h3 data-mistake="A11Y: Skipped h2 — page goes h1 → h3">How I work</h3>
           <p>
             I start with the constraints, talk to the people who use the product, and try to leave
             behind something a team can maintain. Tools change; Figma is the current one.
@@ -50,8 +53,10 @@
       </div>
     </div>
 
-    <footer class="site-footer">
+    <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on Home / CarePath) but missing on other pages">
       <span>© 2026 Taylor Spline · <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a></span>
     </footer>
+
+    <script src="js/annotate.js"></script>
   </body>
 </html>

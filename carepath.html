@@ -6,11 +6,13 @@
     <title>CarePath — Taylor Spline</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/carepath.css" />
+    <link rel="stylesheet" href="css/annotate.css" />
   </head>
-  <body class="page-carepath">
+  <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
+  <body class="page-carepath" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
     <header class="site-header">
       <a class="logo" href="index.html">Taylor Spline</a>
-      <nav class="site-nav">
+      <nav class="site-nav" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
         <a href="index.html#work">Work</a>
         <a href="about.html">About</a>
         <a href="info.html">Info</a>
@@ -18,27 +20,30 @@
     </header>
 
     <article class="wrap">
-      <h1>CarePath</h1>
-      <p class="meta muted">Product design, healthcare · 2023</p>
+      <h1 data-mistake="Visual: 32px heading — other pages use 22 / 24 / 26 / 28px; no type scale">CarePath</h1>
+      <p class="meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Product design, healthcare · 2023</p>
 
       <!-- BAD: no dedicated problem section; the work is described in generalities -->
-      <p>
-        CarePath is a patient intake product used by a regional clinic network. I was brought in to
-        help with the onboarding experience — the stretch from account creation through insurance
-        and medical history, before a first appointment. The existing flow worked in the sense that
-        people eventually got through it, but staff were spending a lot of time on incomplete
-        records and follow-up calls. I joined for a four-month engagement alongside two engineers
-        and a clinical operations lead.
-      </p>
-      <p>
-        Most of the visible work was simplifying the sequence of forms and making it clearer what
-        could wait until later. I also spent time on the staff-facing view of a partially completed
-        intake, which turned out to matter as much as the patient side. We used the clinic’s
-        existing visual language rather than introducing a new one.
-      </p>
+      <div data-mistake="UX: No dedicated problem section; the work is described in generalities">
+        <p>
+          CarePath is a patient intake product used by a regional clinic network. I was brought in to
+          help with the onboarding experience — the stretch from account creation through insurance
+          and medical history, before a first appointment. The existing flow worked in the sense that
+          people eventually got through it, but staff were spending a lot of time on incomplete
+          records and follow-up calls. I joined for a four-month engagement alongside two engineers
+          and a clinical operations lead.
+        </p>
+        <p>
+          Most of the visible work was simplifying the sequence of forms and making it clearer what
+          could wait until later. I also spent time on the staff-facing view of a partially completed
+          intake, which turned out to matter as much as the patient side. We used the clinic’s
+          existing visual language rather than introducing a new one.
+        </p>
+      </div>
 
       <h2>Process</h2>
-      <ul class="process-list">
+      <!-- BAD: process is a tool/step list, not the reasoning that led to decisions -->
+      <ul class="process-list" data-mistake="UX: Process is a tool/step list, not the reasoning that led to decisions">
         <li>Shadowing front-desk staff</li>
         <li>Journey mapping</li>
         <li>Sketching and task flows</li>
@@ -48,22 +53,25 @@
       </ul>
 
       <!-- BAD: two screenshots, no captions, sizes don’t match — unclear what we’re looking at -->
-      <div class="shot-row">
-        <img src="assets/ui-health.svg" alt="image" />
-        <img src="assets/ui-health.svg" alt="screenshot" />
+      <div class="shot-row" data-mistake="UX: Two screenshots, no captions, sizes don't match — unclear what we're looking at">
+        <img src="assets/ui-health.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" />
+        <img src="assets/ui-health.svg" alt="screenshot" data-mistake="Visual: Paired images don't share a top edge or width" />
       </div>
 
       <h2>Outcome</h2>
-      <p>
+      <!-- BAD: outcome claimed without numbers, baseline, or source -->
+      <p data-mistake="UX: Outcome claimed without numbers, baseline, or source">
         Intake completion improved and staff reported fewer follow-up calls. The clinic has since
         rolled the flow out to additional locations. Increased engagement with the pre-visit
         checklist was a nice side effect. I’m not able to share detailed metrics.
       </p>
     </article>
 
-    <footer class="site-footer">
+    <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on Home / About) but missing on other pages">
       <span>© 2026 Taylor Spline</span>
       <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
     </footer>
+
+    <script src="js/annotate.js"></script>
   </body>
 </html>
