@@ -1,0 +1,77 @@
+.page-case .wrap {
+  max-width: 860px;
+  padding-top: 40px;
+  padding-bottom: 96px;
+}
+
+.page-case.wide .wrap {
+  max-width: 1080px;
+}
+
+.page-case h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.page-case .lede {
+  margin: 0 0 32px;
+  font-size: 16px;
+}
+
+.page-case h2 {
+  font-size: 20px;
+  margin: 40px 0 12px;
+}
+
+.page-case h3 {
+  font-size: 16px;
+  margin: 28px 0 10px;
+}
+
+.page-case p {
+  margin: 0 0 16px;
+}
+
+.page-case .hero-shot {
+  margin: 0 0 36px;
+}
+
+.page-case .hero-shot img {
+  width: 100%;
+}
+
+.page-case ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+}
+
+.page-case.visuals .wrap {
+  max-width: 1100px;
+}
+
+.page-case.visuals p {
+  max-width: 720px;
+}
+
+.full-bleed {
+  margin: 32px -20px;
+}
+
+.full-bleed img {
+  width: 100%;
+}
+
+.page-case.text-heavy .wrap {
+  max-width: 720px;
+}
+
+.page-case.text-heavy p {
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .page-case h1 {
+    font-size: 26px;
+  }
+}

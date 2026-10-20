@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520">
+  <rect width="1400" height="520" fill="#fafafa"/>
+  <rect x="40" y="40" width="180" height="28" fill="#1c1c1c"/>
+  <line x1="80" y1="240" x2="1320" y2="240" stroke="#ccc" stroke-width="4"/>
+  <circle cx="160" cy="240" r="14" fill="#e07a5f"/>
+  <circle cx="430" cy="240" r="14" fill="#e07a5f"/>
+  <circle cx="700" cy="240" r="14" fill="#e07a5f"/>
+  <circle cx="970" cy="240" r="14" fill="#e07a5f"/>
+  <circle cx="1240" cy="240" r="14" fill="#e07a5f"/>
+  <rect x="90" y="80" width="140" height="70" fill="#f3efe8"/>
+  <rect x="360" y="80" width="140" height="70" fill="#f3efe8"/>
+  <rect x="630" y="80" width="140" height="70" fill="#f3efe8"/>
+  <rect x="900" y="80" width="140" height="70" fill="#f3efe8"/>
+  <rect x="1170" y="80" width="140" height="70" fill="#f3efe8"/>
+  <rect x="90" y="300" width="140" height="90" fill="#eee"/>
+  <rect x="360" y="300" width="140" height="90" fill="#eee"/>
+  <rect x="630" y="300" width="140" height="90" fill="#eee"/>
+  <rect x="900" y="300" width="140" height="90" fill="#eee"/>
+  <rect x="1170" y="300" width="140" height="90" fill="#eee"/>
+  <rect x="90" y="410" width="140" height="50" fill="#f8d9d0"/>
+  <rect x="360" y="410" width="140" height="50" fill="#f8d9d0"/>
+  <rect x="630" y="410" width="140" height="50" fill="#e4f0d8"/>
+  <rect x="900" y="410" width="140" height="50" fill="#e4f0d8"/>
+  <rect x="1170" y="410" width="140" height="50" fill="#e4f0d8"/>
+</svg>

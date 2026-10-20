@@ -3,169 +3,115 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Taylor Spline — Product Designer</title>
-    <script>
-      (function () {
-        var v = "bad";
-        try {
-          var q = new URLSearchParams(location.search).get("view");
-          if (q === "annotated" || q === "fixed" || q === "bad") v = q;
-          else {
-            var s = localStorage.getItem("portfolio-view");
-            if (s === "annotated" || s === "fixed" || s === "bad") v = s;
-            else if (sessionStorage.getItem("annotate-mistakes") === "1") v = "annotated";
-          }
-        } catch (e) {}
-        document.documentElement.setAttribute("data-view", v);
-      })();
-    </script>
+    <title>Avery Lane — Product Designer | UX | UI | Researcher | Creative Thinker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/annotate.css" />
-    <link rel="stylesheet" href="css/fixed.css" />
   </head>
-  <!-- BAD: 14px body — readable, but below the common 16px recommendation -->
-  <body class="page-home" data-mistake="A11Y: 14px body — readable, but below the common 16px recommendation">
-    <!-- BAD: available-for-work modal. Close is a div (not in the tab order).
-         Focus is not moved into the dialog, so Tab continues through the page behind. -->
-    <div class="modal" role="dialog" aria-labelledby="avail-title" data-mistake="A11Y: Modal does not move focus inward; Tab continues through the page behind">
-      <div class="modal-panel" style="padding: 20px 24px 24px;">
-        <div class="modal-close view-bad" data-mistake="A11Y: Close control is a div, not a button — skipped when tabbing">×</div>
-        <button type="button" class="modal-close view-fixed" aria-label="Close dialog">×</button>
-        <p id="avail-title" style="margin: 0 0 8px; font-weight: 600;">Currently available</p>
-        <p class="muted" style="margin: 0;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">I’m taking on a few freelance projects for 2026. If you’re hiring, send a note via Info.</p>
-      </div>
-    </div>
-
+  <body class="page-home">
     <header class="site-header">
-      <a class="logo" href="index.html">Taylor Spline</a>
-      <!-- BAD: nav labels are real but generic — "Work" is just this page, "Info" is not obviously contact -->
-      <nav class="site-nav view-bad" data-mistake="UX: Nav labels are real but generic — Work is this page, Info is not obviously contact">
-        <a href="index.html#work">Work</a>
+      <a class="brand" href="index.html">
+        <span class="brand-name">avery lane</span>
+        <span class="brand-title">Product Designer | UX | UI | Researcher | Creative Thinker</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Work</a>
         <a href="about.html">About</a>
-        <a href="info.html">Info</a>
-      </nav>
-      <nav class="site-nav view-fixed" aria-label="Primary">
-        <a href="index.html#work" aria-current="page">Work</a>
-        <a href="about.html">About</a>
-        <a href="info.html">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
 
-    <!-- BAD: white 15px text on a busy hero with only a light overlay — still fails WCAG contrast -->
-    <div class="hero" data-mistake="A11Y: White 15px text on a busy hero with only a light overlay — still fails WCAG contrast">
-      <h1 data-mistake="Visual: 28px heading; other pages use 24px / 32px — no type scale">Product designer working on everyday tools.</h1>
-      <p>I design digital products for financial services, health, and civic tech.</p>
+    <div class="hero">
+      <h1>I'm a UX wizard who crafts delightful, user-centric experiences that make the world a better place, one pixel at a time.</h1>
+      <p>
+        Passionate about synergy, storytelling, and turning complexity into something seamless and intuitive.
+        I leverage design thinking to bring ideas to life and help brands connect with people in meaningful ways.
+      </p>
     </div>
 
     <div class="wrap">
-      <section class="section" id="work">
-        <div class="section-head">
-          <!-- BAD: skipped heading level — h1 in the hero, then h3 here (no h2) -->
-          <h3 class="view-bad" style="font-size: 18px; font-weight: 600; margin: 0;" data-mistake="A11Y: Skipped heading level — h1 in the hero, then h3 here (no h2)">Selected work</h3>
-          <h2 class="view-fixed">Selected work</h2>
-          <!-- BAD: filter is a div, not a select/button. Menu items stay tabbable while closed. -->
-          <div class="dropdown view-bad" data-mistake="A11Y: Filter is a div, not a select/button. Closed menu items stay in the tab order">
-            <div class="dropdown-trigger" tabindex="0">All projects</div>
-            <div class="dropdown-menu">
-              <div class="dropdown-item" tabindex="0">All projects</div>
-              <div class="dropdown-item" tabindex="0">Product</div>
-              <div class="dropdown-item" tabindex="0">Research</div>
-            </div>
-          </div>
-          <label class="filter-label view-fixed" for="project-filter">
-            Filter
-            <select id="project-filter">
-              <option value="all">All projects</option>
-              <option value="product">Product</option>
-              <option value="research">Research</option>
-            </select>
-          </label>
-        </div>
-
-        <!-- BAD: work grid almost lines up — last card sits 12px lower, gaps are uneven -->
-        <div class="work-grid" data-mistake="Visual: Work grid almost lines up — last card sits lower, gaps are uneven">
-          <article data-category="product">
-            <a class="project-card" href="northshore.html">
-              <img src="assets/ui-bank-1.svg" alt="image" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="Northshore Bank account home showing balances and recent activity" />
-              <h3>Northshore Bank</h3>
-              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Consumer banking · 2024</p>
+      <section class="section">
+        <h2>Selected work</h2>
+        <div class="work-grid">
+          <article>
+            <a class="project-card" href="skb-leasing.html">
+              <img src="assets/skb-hero.svg" alt="project" />
+              <h3>SKB Leasing</h3>
+              <p class="project-meta muted">Product · 2024</p>
             </a>
           </article>
-          <article data-category="product">
-            <a class="project-card" href="carepath.html">
-              <img src="assets/ui-health.svg" alt="portfolio piece" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="CarePath patient intake form, step two of three" />
-              <h3>CarePath</h3>
-              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Healthcare · 2023</p>
+          <article>
+            <a class="project-card" href="project-phoenix.html">
+              <img src="assets/phoenix-thumb.svg" alt="image" />
+              <h3>Project Phoenix</h3>
+              <p class="project-meta muted">UX · 2023</p>
             </a>
           </article>
-          <article data-category="research">
-            <a class="project-card" href="parkwell.html">
-              <img src="assets/ui-park.svg" alt="ui-park.svg" data-mistake="A11Y: Alt text present but meaningless" data-alt-fixed="Parkwell map and pay-and-extend panel on mobile" />
-              <h3>Parkwell</h3>
-              <p class="project-meta muted" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Civic tech · 2023</p>
+          <article>
+            <a class="project-card" href="app-redesign.html">
+              <img src="assets/app-hero.svg" alt="app" />
+              <h3>App Redesign</h3>
+              <p class="project-meta muted">UI · 2023</p>
             </a>
           </article>
-        </div>
-      </section>
-
-      <section class="intro-block">
-        <div>
-          <h2>A bit about me</h2>
-          <p>
-            I’m a product designer based in Toronto. I care about making complex systems feel
-            straightforward, and I’ve spent the last few years in regulated spaces where the
-            details actually matter.
-          </p>
-          <!-- BAD: looks like a button, implemented as a div with onclick instead of <a> or <button> -->
-          <div class="btn view-bad" onclick="location.href='about.html'" data-mistake="A11Y: Looks like a button, implemented as a div with onclick instead of a link or button">More about me</div>
-          <a class="btn view-fixed" href="about.html">More about me</a>
-        </div>
-        <div>
-          <p class="muted" style="margin: 0 0 8px;" data-mistake="A11Y: Borderline contrast — mid-gray on white, fails WCAG AA (~3.5:1)">Notes from collaborators</p>
-          <!-- BAD: testimonial carousel autoplays; there is no pause control -->
-          <div class="carousel" data-mistake="A11Y: Carousel autoplays with no pause control">
-            <div class="carousel-viewport">
-              <div class="carousel-track">
-              <div class="carousel-slide">
-                <p>“Taylor is a strong partner in the room and keeps the work moving.”</p>
-                <p class="muted" style="margin-top: 8px;">Design manager, former team</p>
-              </div>
-              <div class="carousel-slide">
-                <p>“Brought clarity to a messy problem space and left us with a system we could keep using.”</p>
-                <p class="muted" style="margin-top: 8px;">PM, CarePath</p>
-              </div>
-              <div class="carousel-slide">
-                <p>“Easy to work with. Delivered on time.”</p>
-                <p class="muted" style="margin-top: 8px;">Engineering lead, Northshore</p>
-              </div>
+          <article>
+            <div class="project-card">
+              <img src="assets/bakery.svg" alt="logo" />
+              <h3>Rise &amp; Thyme</h3>
+              <p class="project-meta muted">Branding · 2024</p>
             </div>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/poster.svg" alt="poster" />
+              <h3>Type Night</h3>
+              <p class="project-meta muted">Poster · class project</p>
             </div>
-            <div class="carousel-dots view-bad">
-              <div class="carousel-dot is-active" data-slide="0"></div>
-              <div class="carousel-dot" data-slide="1"></div>
-              <div class="carousel-dot" data-slide="2"></div>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/dribbble.svg" alt="dashboard" />
+              <h3>Finly Dashboard</h3>
+              <p class="project-meta muted">Dribbble shot · 2024</p>
             </div>
-            <div class="carousel-toolbar view-fixed">
-              <div class="carousel-dots">
-                <button type="button" data-slide="0" aria-label="Show quote 1" aria-current="true"></button>
-                <button type="button" data-slide="1" aria-label="Show quote 2"></button>
-                <button type="button" data-slide="2" aria-label="Show quote 3"></button>
-              </div>
-              <button type="button" class="carousel-pause" aria-pressed="false">Pause</button>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/dayloop.svg" alt="calendar" />
+              <h3>Dayloop</h3>
+              <p class="project-meta muted">Concept</p>
             </div>
-          </div>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/brand.svg" alt="brand" />
+              <h3>Personal Branding</h3>
+              <p class="project-meta muted">Identity</p>
+            </div>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/packaging.svg" alt="packaging" />
+              <h3>Bloom Box</h3>
+              <p class="project-meta muted">Packaging</p>
+            </div>
+          </article>
+          <article>
+            <div class="project-card">
+              <img src="assets/uikit.svg" alt="ui kit" />
+              <h3>Still UI Kit</h3>
+              <p class="project-meta muted">Exploration</p>
+            </div>
+          </article>
         </div>
       </section>
     </div>
 
-    <!-- BAD: contact is in the footer here (and on About / CarePath) but missing on other pages -->
-    <footer class="site-footer" data-mistake="UX: Contact is in the footer here (and on About / CarePath) but missing on other pages">
-      <span>© 2026 Taylor Spline</span>
-      <a href="mailto:hello@taylorspline.design">hello@taylorspline.design</a>
+    <footer class="site-footer">
+      <span>© 2026 Avery Lane</span>
+      <span>Let's create magic together!</span>
     </footer>
-
-    <script src="js/site.js"></script>
-    <script src="js/annotate.js"></script>
   </body>
 </html>

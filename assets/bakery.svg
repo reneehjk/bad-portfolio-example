@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4e4c1"/>
+  <circle cx="400" cy="230" r="120" fill="#fff8ea" stroke="#c45c26" stroke-width="8"/>
+  <text x="400" y="225" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#c45c26">Rise &amp; Thyme</text>
+  <text x="400" y="258" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="#8a5a3b">BAKERY · EST. 2024</text>
+</svg>

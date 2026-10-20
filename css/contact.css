@@ -1,0 +1,37 @@
+.page-contact .wrap {
+  max-width: 560px;
+  padding-top: 64px;
+  padding-bottom: 96px;
+  text-align: center;
+}
+
+.page-contact h1 {
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+
+.page-contact .signoff {
+  font-size: 18px;
+  margin: 0 0 36px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.page-contact form {
+  text-align: left;
+}
+
+.page-contact .btn {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.form-note {
+  margin-top: 16px;
+  font-size: 13px;
+  display: none;
+}
+
+.form-note.is-visible {
+  display: block;
+}

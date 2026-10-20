@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1040" viewBox="0 0 800 1040">
+  <rect width="800" height="1040" fill="#111"/>
+  <rect x="40" y="40" width="720" height="960" fill="#f2ff3a"/>
+  <text x="80" y="220" font-family="Impact,Arial Black,sans-serif" font-size="92" fill="#111">TYPE</text>
+  <text x="80" y="330" font-family="Impact,Arial Black,sans-serif" font-size="92" fill="#ff2d95">NIGHT</text>
+  <text x="80" y="420" font-family="Arial,sans-serif" font-size="22" fill="#111">THU 08.14 · ROOM 204 · 7PM</text>
+  <rect x="80" y="520" width="280" height="280" fill="#111"/>
+  <rect x="400" y="640" width="280" height="160" fill="#ff2d95"/>
+</svg>

@@ -1,58 +1,56 @@
-/* About — narrower column, more top padding, smaller title than home */
-
-.page-about .site-header {
-  padding: 18px 40px;
-}
-
-.page-about .logo {
-  font-size: 15px;
-}
-
-.page-about .site-nav {
-  font-size: 14px;
-}
-
 .page-about .wrap {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 56px 40px 72px;
+  max-width: 760px;
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
 
 .page-about h1 {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0 0 6px;
+  font-size: 28px;
+  margin: 0 0 8px;
 }
 
 .page-about .lede {
-  margin: 0 0 28px;
+  margin: 0 0 32px;
 }
 
-.about-layout {
+.about-hero {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  /* BAD: 28px vs 40px used elsewhere — gap doesn't match the home grid */
-  gap: 28px;
+  grid-template-columns: 200px 1fr;
+  gap: 36px;
   align-items: start;
+  margin-bottom: 12px;
 }
 
-.about-layout img {
-  width: 160px;
-  height: 200px;
+.about-hero img {
+  width: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
 .about-copy p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
-.page-about h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 28px 0 8px;
+.page-about h2 {
+  font-size: 18px;
+  margin: 36px 0 10px;
 }
 
-.page-about .site-footer {
-  padding: 16px 40px 28px;
-  font-size: 13px;
+.tool-columns {
+  columns: 2;
+  column-gap: 32px;
+  font-size: 14px;
+}
+
+.tool-columns p {
+  margin: 0 0 8px;
+  break-inside: avoid;
+}
+
+@media (max-width: 700px) {
+  .about-hero,
+  .tool-columns {
+    grid-template-columns: 1fr;
+    columns: 1;
+  }
 }
