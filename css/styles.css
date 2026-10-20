@@ -2,6 +2,8 @@
   --text: #1c1c1c;
   --muted: #8a8a8a;
   --accent: #e07a5f;
+  --navy: #2c4a6e;
+  --link: #1a73e8;
   --line: #e8e4de;
   --bg: #fffcf8;
   --card: #ffffff;
@@ -26,7 +28,7 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: var(--link);
 }
 
 .site-header {
@@ -42,27 +44,32 @@ a {
 
 .brand {
   text-decoration: none;
-  color: var(--text);
+  color: var(--navy);
 }
 
 .brand-name {
   font-weight: 600;
   font-size: 18px;
   letter-spacing: -0.02em;
+  color: var(--navy);
 }
 
 .brand-title {
   display: block;
   font-size: 11px;
-  color: var(--muted);
+  color: #9aa0a6;
   font-weight: 400;
   margin-top: 2px;
 }
 
 .site-nav a {
   text-decoration: none;
-  color: var(--text);
+  color: #333333;
   font-size: 14px;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
 }
 
 .site-nav a + a {

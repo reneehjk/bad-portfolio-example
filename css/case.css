@@ -1,7 +1,19 @@
+.page-case {
+  background: #ffffff;
+}
+
 .page-case .wrap {
   max-width: 860px;
   padding-top: 40px;
   padding-bottom: 96px;
+}
+
+.page-case h1 {
+  color: #1c1c1c;
+}
+
+.page-case h2 {
+  color: var(--navy);
 }
 
 .page-case.wide .wrap {

@@ -1,3 +1,7 @@
+.page-contact {
+  background: #ffffff;
+}
+
 .page-contact .wrap {
   max-width: 560px;
   padding-top: 64px;
@@ -8,12 +12,13 @@
 .page-contact h1 {
   font-size: 30px;
   margin: 0 0 10px;
+  color: var(--navy);
 }
 
 .page-contact .signoff {
   font-size: 18px;
   margin: 0 0 36px;
-  color: var(--accent);
+  color: #7c3aed;
   font-weight: 500;
 }
 
@@ -24,6 +29,7 @@
 .page-contact .btn {
   margin-top: 16px;
   width: 100%;
+  background: #2563eb;
 }
 
 .form-note {

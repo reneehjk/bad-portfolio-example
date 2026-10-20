@@ -1,3 +1,12 @@
+.page-about {
+  background: #f4f6f8;
+}
+
+.page-about .site-header {
+  background: #eef2f7;
+  border-bottom-color: #d5dde6;
+}
+
 .page-about .wrap {
   max-width: 760px;
   padding-top: 48px;
@@ -7,6 +16,13 @@
 .page-about h1 {
   font-size: 28px;
   margin: 0 0 8px;
+  color: #2563eb;
+}
+
+.page-about .site-footer {
+  background: #1b2a4a;
+  color: #c5cdd8;
+  border-top: 0;
 }
 
 .page-about .lede {
@@ -34,6 +50,7 @@
 .page-about h2 {
   font-size: 18px;
   margin: 36px 0 10px;
+  color: #0f766e;
 }
 
 .tool-columns {
