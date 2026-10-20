@@ -26,6 +26,13 @@
   font-weight: 600;
 }
 
+.page-case .case-note {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #c45c26;
+  max-width: 42em;
+}
+
 .page-case .lede {
   margin: 0 0 32px;
   font-size: 16px;
