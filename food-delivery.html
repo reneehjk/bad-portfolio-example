@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A Food Delivery App — Alex Morgan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/case.css" />
+  </head>
+  <body class="page-case visuals">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-name">Alex Morgan</span>
+        <span class="brand-title">Product Designer</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="wrap">
+      <p class="muted" style="margin: 0 0 8px; font-size: 12px;">UX / UI · 2023</p>
+      <h1>A Food Delivery App</h1>
+      <p class="lede">A more intuitive way to order from nearby restaurants.</p>
+
+      <h2>Final designs</h2>
+      <p>
+        After several rounds of iteration, the shipped experience used a persistent cart,
+        cuisine filters that don’t reset on scroll, and a tracking screen that shows
+        driver status in plain language instead of a generic map ping. Repeat orders
+        sit at the top of home because most sessions start there.
+      </p>
+      <div class="hero-shot">
+        <img src="assets/food-hero.svg" alt="Final screens" />
+        <p class="caption">[Image: home, menu, item, and tracking]</p>
+      </div>
+      <div class="gallery six">
+        <div class="shot"><img src="assets/food-1.svg" alt="Home" /></div>
+        <div class="shot"><img src="assets/food-2.svg" alt="Menu" /></div>
+        <div class="shot"><img src="assets/food-3.svg" alt="Item" /></div>
+        <div class="shot"><img src="assets/food-4.svg" alt="Cart" /></div>
+        <div class="shot"><img src="assets/food-5.svg" alt="Track" /></div>
+        <div class="shot"><img src="assets/food-6.svg" alt="Profile" /></div>
+      </div>
+      <p class="caption">[Image: 6 mobile screens in a grid]</p>
+
+      <h2>Usability testing</h2>
+      <p>
+        We tested the prototype with eight people who order delivery at least once a week.
+        Five of them still couldn’t tell whether a restaurant was closed or just not
+        delivering to their pin. We moved hours next to the ETA after that. Two people
+        added the same item twice because the “added” confirmation was too quiet; we
+        switched it to a cart badge that ticks up. Checkout completion in the test went
+        from 6/8 to 8/8 after we pulled tip selection onto the same screen as payment
+        instead of a second step.
+      </p>
+      <p>
+        One participant, a parent ordering during bedtime, asked to reorder last week’s
+        meal in two taps. That request later became the “Order again” row on home, though
+        at the time we were still arguing about whether home should lead with promotions.
+      </p>
+
+      <h2>Next steps</h2>
+      <p>
+        Before we had a problem statement, the team ran a survey (n=64) about weekly
+        ordering habits. Most people said they decide in under two minutes. That number
+        sat in a deck for a while without changing the roadmap. Looking back, it should
+        have killed the long promotional carousel immediately.
+      </p>
+
+      <h2>Early sketches</h2>
+      <p>
+        Original wireframes treated the app like a restaurant website: a long menu, a
+        separate cart page, and tracking as an SMS deep link. I explored a map-first
+        home, which looked energetic and made nearby places harder to compare. We also
+        sketched a “build a group order” flow that engineering estimated at six weeks;
+        we cut it so we could finish tracking.
+      </p>
+      <div class="shot">
+        <img src="assets/wireframes.svg" alt="Wireframes" />
+        <p class="caption">[Image: early wireframes, including a map-first home we did not ship]</p>
+      </div>
+
+      <h2>Prototype</h2>
+      <p>
+        Interviews (9 customers, 3 couriers) happened after the first high-fidelity pass,
+        which is not the order I would recommend. Couriers told us the in-app status
+        labels (“arriving,” “almost there”) didn’t match what they saw in the driver
+        tool, so customers were calling restaurants. That is why tracking copy is now
+        tied to the same four states the driver app uses: confirmed, preparing, on the
+        way, nearby.
+      </p>
+      <div class="gallery two">
+        <div class="shot"><img src="assets/food-5.svg" alt="Tracking" /></div>
+        <div class="shot"><img src="assets/stickies.svg" alt="Notes" /></div>
+      </div>
+      <p class="caption">[Image: tracking screen next to interview notes]</p>
+
+      <h2>Empathize</h2>
+      <p>
+        High-fidelity UI work included a component library for menu items, a stepper
+        for quantity, and a bottom-sheet cart. We chose a warm accent so the app would
+        feel like food rather than logistics, and we kept photography large on restaurant
+        cards because small logos all looked the same at a glance. This was happening
+        in parallel with research we hadn’t fully synthesized yet.
+      </p>
+
+      <h2>The problem</h2>
+      <p>
+        The product is a food delivery app for a mid-size city. Order volume was fine;
+        support tickets were not. People abandoned carts when fees appeared late, and
+        they couldn’t tell if an order was actually moving. My role was product designer
+        for 10 weeks, with a PM and two iOS/Android engineers. The brief we should have
+        written on day one: reduce checkout drop-off and make order status trustworthy.
+        We didn’t write it until after the first critique of the visual UI.
+      </p>
+      <p>
+        Sarah, 28, busy professional, orders lunch at her desk and dinner on the couch.
+        She is not exploring cuisine; she is trying to repeat something that worked.
+        Designing for her meant optimizing for speed and memory, not discovery — which
+        conflicted with marketing’s desire to feature new restaurants. We compromised
+        by keeping one promo module and giving “Order again” the first slot.
+      </p>
+      <div class="shot">
+        <img src="assets/persona.svg" alt="Persona" />
+        <p class="caption">[Image: Sarah, 28, busy professional]</p>
+      </div>
+
+      <h2>Impact</h2>
+      <p>
+        Checkout completion rose 14% in the six weeks after launch. Tickets about
+        “where is my order” fell by about a third. The “Order again” row accounts for
+        29% of orders among weekly users. I still think we should have started this
+        write-up with the problem, not the screens — the screens make more sense once
+        you know we were fixing late fees and opaque tracking, not “reimagining food.”
+      </p>
+
+      <h2>Research (continued)</h2>
+      <p>
+        A journey map from week two showed the spike of anxiety between “placed” and
+        “on the way.” That artifact informed the tracking screen, even though it appears
+        here after the final UI. Fees were moved next to the cart total as soon as an
+        item is added, not at payment, because two interview participants said they only
+        noticed delivery cost when it was too late to back out.
+      </p>
+      <div class="shot">
+        <img src="assets/journey.svg" alt="Journey map" />
+        <p class="caption">[Image: journey map highlighting the wait between placing and pickup]</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>© 2026 Alex Morgan</span>
+      <span>Open to new opportunities</span>
+    </footer>
+  </body>
+</html>

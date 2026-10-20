@@ -63,11 +63,38 @@
 }
 
 .page-case.text-heavy .wrap {
-  max-width: 720px;
+  max-width: 680px;
 }
 
 .page-case.text-heavy p {
   font-size: 15px;
+  margin-bottom: 22px;
+}
+
+.page-case.text-heavy h2 {
+  font-size: 18px;
+  margin: 28px 0 16px;
+}
+
+.meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 0 0 36px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.meta-row strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 @media (max-width: 700px) {

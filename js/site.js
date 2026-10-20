@@ -9,7 +9,7 @@
     var note = document.querySelector(".form-note");
     if (note) {
       note.classList.add("is-visible");
-      note.textContent = "Thanks!! I'll be in touch soon so we can start creating magic.";
+      note.textContent = "Thanks for reaching out. I'll get back to you soon.";
     }
   });
 })();

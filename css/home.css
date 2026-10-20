@@ -32,14 +32,9 @@
 
 .work-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 28px 22px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 28px;
   padding-bottom: 72px;
-}
-
-.work-grid article:nth-child(4),
-.work-grid article:nth-child(8) {
-  margin-top: 10px;
 }
 
 .project-card {
@@ -51,18 +46,9 @@
 .project-card img,
 .project-card .thumb img {
   width: 100%;
-  height: 188px;
+  height: 220px;
   object-fit: cover;
   background: #f3efe8;
-}
-
-.work-grid article:nth-child(2) img,
-.work-grid article:nth-child(5) img {
-  height: 168px;
-}
-
-.work-grid article:nth-child(7) img {
-  height: 210px;
 }
 
 .project-card h3 {

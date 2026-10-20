@@ -1,3 +1,3 @@
-# Avery Lane
+# Alex Morgan
 
-Personal site. Open `index.html` in a browser, or run `python3 -m http.server` from this folder.
+Product design portfolio. Open `index.html` in a browser, or run `python3 -m http.server` from this folder.
